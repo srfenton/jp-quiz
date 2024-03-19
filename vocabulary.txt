@@ -1,0 +1,246 @@
+だいがく, college
+こうこう, high school
+がくせい, student
+だいがくせい, college student
+りゅうがくせい, international student
+せんせい, teacher; professor
+...ねんせい, ...year student
+いちねんせい, first-year student
+せんこう, major
+わたし, I
+ともだち, friend
+さん, Mr. / Ms.
+...にん, ...people
+にほんじん, Japanese people
+いま, now
+ごぜん, a.m.
+ごご, p.m.
+じかん, o'clock
+いちじ, one o'clock
+はん, half
+にじはん, half past two
+にほん, Japan
+アメリカ, USA
+...ご, ...language
+にほんご, Japanese language
+...さい, ...years old
+でんわ, telephone
+ばんごう, number
+~ばん, number...
+なまえ, name
+なに, what
+ええと, um...
+はい, yes
+そうです, that's right
+なるほど, I see...
+そうですか, is that so?
+おはようございます, Good morning
+こんにちは, Good afternoon
+こんばんは, Good evening
+さようなら, Good-bye
+ありがとう, Thank you
+すみません, Excuse me; I'm sorry
+いいえ、けっこうです, No; not at all
+いってきます, I'll go and come back
+がくせい, I'm home
+おかえりなさい, Welcome home
+いただきます, Thank you for the meal (before eating)
+ごちそうさまでした, Thank you for the meal (after eating)
+はじめまして, How do you do?
+～です, I am...
+どうぞよろしく, Nice to meet you
+きょう, Today
+にち, Date
+あつい, Hot
+ちょっとまって, Wait a moment
+おもしろい, Interesting
+ソウル, Seoul
+おなじ, The same
+～みたい, Like; seems like
+おつかれさまです, Thank you for your hard work
+いち, 1
+に, 2
+さん, 3
+よん, 4
+ご, 5
+ろく, 6
+なな/しち, 7
+はち, 8
+きゅう, 9
+じゅう, 10
+じゅういち, 11
+じゅうに, 12
+じゅうさん, 13
+じゅうよん, 14
+じゅうご, 15
+じゅうろく, 16
+じゅうしち, 17
+じゅうはち, 18
+じゅうきゅう, 19
+にじゅう, 20
+さんじゅう, 30
+よんじゅう, 40
+ごじゅう, 50
+ろくじゅう, 60
+ななじゅう, 70
+はちじゅう, 80
+きゅうじゅう, 90
+ひゃく, 100
+ついたち, 1st
+ふつか, 2nd
+みっか, 3rd
+よっか, 4th
+いつか, 5th
+むいか, 6th
+なのか, 7th
+ようか, 8th
+ここのか, 9th
+とおか, 10th
+じゅういちにち, 11th
+じゅうににち, 12th
+じゅうさんにち, 13th
+じゅうよっか, 14th
+じゅうごにち, 15th
+じゅうろくにち, 16th
+じゅうしちにち, 17th
+じゅうはちにち, 18th
+じゅうきゅうにち, 19th
+はつか, 20th
+にじゅういちにち, 21st
+にじゅうににち, 22nd
+にじゅうさんにち, 23rd
+にじゅうよっか, 24th
+にじゅうごにち, 25th
+にじゅうろくにち, 26th
+にじゅうしちにち, 27th
+にじゅうはちにち, 28th
+にじゅうきゅうにち, 29th
+さんじゅうにち, 30th
+さんじゅういちにち, 31st
+いちがつ, January
+にがつ, February
+さんがつ, March
+しがつ, April
+ごがつ, May
+ろくがつ, June
+しちがつ, July
+はちがつ, August
+くがつ, September
+じゅうがつ, October
+じゅういちがつ, November
+じゅうにがつ, December
+これ, this one
+それ, that one
+あれ, that (over there)
+どれ, which one
+この, this...
+その, that...
+あの, that...(over there)
+どの, which...  
+ここ, here
+そこ, there
+あそこ, over there
+どこ, where
+だれ, who
+おいしい, delicious
+さかな, fish
+とんかつ, pork cutlet
+にく, meat
+メニュー, menu
+やさい, vegetable
+かさ, umbrella
+かばん, bag
+ジーンズ, jeans
+じてんしゃ, bicycle
+しんぶん, newspaper
+スマホ, smartphone
+Tシャツ, T shirt
+とけい, clock/watch
+ノート, notebook
+ぺん, pen
+ぼうし, hat
+ほん, book
+ぎんこう, bank
+コンビニ, convenience store
+トイレ, toilet/bathroom
+としょかん, library
+ゆうびんきょく, post office
+いりぎす, Switzerland
+かんこく, South Korea
+ちゅうごく, China
+えいご, English
+けいざい, economy
+コンピューター, computer
+ビジネス, business
+れきし, history
+おかあさん, mother
+おとうさん, father
+いくら, how much
+...えん, yen
+たかい, expensive
+いらっしゃいませ, welcome (to our store)
+(...を) おねがいします, ....please
+(...を) ください, please give me...
+じゃあ, well/then
+どうぞ, please/here it is
+どうも, thank you
+いちじ, 1 o'clock
+にじ, 2 o'clock
+さんじ, 3 o'clock
+よじ, 4 o'clock
+ごじ, 5 o'clock
+ろくじ, 6 o'clock
+しちじ or ななじ, 7 o'clock
+はちじ, 8 o'clock
+くじ, 9 o'clock
+じゅうじ, 10 o'clock
+じゅういちじ, 11 o'clock
+じゅうにじ, 12 o'clock
+いっぷん, 1 minute
+にふん, 2 minutes
+さんぷん, 3 minutes
+よんぷん, 4 minutes
+ごふん, 5 minutes
+ろっぷん, 6 minutes
+しちふん or ななふん, 7 minutes
+はっぷん, 8 minutes
+きゅうふん, 9 minutes
+じゅっぷん, 10 minutes
+じゅういっぷん, 11 minutes
+じゅうにふん, 12 minutes
+じゅうさんぷん, 13 minutes
+じゅうよんぷん, 14 minutes
+じゅうごふん, 15 minutes
+じゅうろっぷん, 16 minutes
+じゅうしちふん or じゅうななふん, 17 minutes
+じゅうはっぷん, 18 minutes
+じゅうきゅうふん, 19 minutes
+にじゅっぷん, 20 minutes
+さんじゅっぷん, 30 minutes
+ひゃく, 100
+にひゃく, 200
+さんびゃく, 300
+よんひゃく, 400
+ごひゃく, 500
+ろっぴゃく, 600
+ななひゃく, 700
+はっぴゃく, 800
+きゅうひゃく, 900
+せん, 1000
+にせん, 2000
+さんぜん, 3000
+よんせん, 4000
+ごせん, 5000
+ろくせん, 6000
+ななせん, 7000
+はっせん, 8000
+きゅうせん, 9000
+いちまん, 10000
+にまん, 20000
+さんまん, 30000
+よんまん, 40000
+ごまん, 50000
+ろくまん, 60000
+ななまん, 70000
+はちまん, 80000
+きゅうまん, 90000
