@@ -1,0 +1,29 @@
+אב, Father
+אם, Mother
+סבא, Grandfather
+סבתא, Grandmother
+בן, Son
+בת, Daughter
+אח, Brother
+אָחוֹת, Sister
+אחי, Younger Brother
+אחותי, Younger Sister
+דוד, Uncle
+דודה, Aunt
+בן דוד/בת דוד, Cousin (male/female)
+בן דוד/בת דוד, Cousin (male/female)
+נינוי, Nephew
+בת אח/בת דוד, Niece
+נכד/נכדה, Grandchild
+אבא, Dad
+אמא, Mom
+כלב, Dog
+חתול, Cat
+ציפור, Bird
+ארנבת, Rabbit
+נחש, Snake
+צב, Turtle
+עכבר, Mouse
+עטלף, Bat
+קיפוד, Hedgehog
+צפרדע, Frog
