@@ -1,0 +1,19 @@
+父, père
+母, mère
+祖父, grand-père
+祖母, grand-mère
+息子, fils
+娘, fille
+兄, frère
+姉, sœur
+弟, petit frère
+妹, petite sœur
+叔父, oncle
+叔母, tante
+従兄弟, cousin (masculin)
+従姉妹, cousine (féminin)
+甥, neveu
+姪, nièce
+孫, petit-fils/petite-fille
+父親, papa
+母親, maman
