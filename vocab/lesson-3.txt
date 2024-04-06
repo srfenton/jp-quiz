@@ -1,0 +1,56 @@
+えいが, movie
+おんがく, music
+ざっし, magazine
+スポーツ, sports
+デート, date
+テニス, tennis
+テレビ, TV
+アイスクリーム, ice cream
+ハンバーガー, hamburger
+さけ, sake; alcoholic drink
+おちゃ, green tea
+コーヒー, coffee
+みず, water
+あさごはん, breakfast
+ひるごはん, lunch
+ばんごはん, dinner
+いえ, home; house
+うち, home; house; my place
+がっこう, school
+カフェ, cafe
+あした, tomorrow
+きょう, today
+あさ, morning
+こんばん, tonight
+まいにち, every day
+まいばん, every night
+しゅうまつ, weekend
+どようび, saturday
+にちようび, sunday
+いつ, when
+ごろ, at about...
+いく, to go (destination)
+かえる, to go back; to return
+きく, to listen; hear
+のむ, to drink
+はなす, to speak; to talk
+よむ, to read
+おきる, to get up
+たべる, to eat
+ねる, to sleep; to go to sleep
+みる, to see; to look at; to watch
+くる, to come
+する, to do
+べんきょうする, to study
+いい, good
+はやい, early
+あまり, not much
+ぜんぜん, not at all
+たいてい, usually
+すこし, a little
+ときどき, sometimes
+よく, often; much
+そうですね, that's right; let me see
+でも, but
+どうですか, how about...?; how is...?
+はい, yes

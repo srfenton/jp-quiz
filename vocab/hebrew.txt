@@ -11,6 +11,7 @@
 דוד, Uncle
 דודה, Aunt
 בן דוד/בת דוד, Cousin (male/female)
+בן דוד/בת דוד, Cousin (male/female)
 נינוי, Nephew
 בת אח/בת דוד, Niece
 נכד/נכדה, Grandchild
