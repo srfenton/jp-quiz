@@ -1,7 +1,7 @@
 var fs = require('fs'); 
 const { userInfo } = require('os');
 
-fs.readFile('english.txt', 'utf8', function (err, file) {
+fs.readFile('lesson-3.txt', 'utf8', function (err, file) {
   if (err) throw err;
   let lines = file.split('\n');
   const vocabBank = {};
@@ -46,7 +46,19 @@ fs.readFile('english.txt', 'utf8', function (err, file) {
       let currentWordEnglish = vocabBank[japaneseTranslationArray[currentIndex]]
       console.log(currentIndex+1,'. ',japaneseTranslationArray[currentIndex], ': \n');
       shuffle(englishTranslationArray);
-      choices = [englishTranslationArray[0],englishTranslationArray[1],englishTranslationArray[2],currentWordEnglish];
+      incorrectQuestionPool = englishTranslationArray;
+      choicesAreUnqiue = false;
+      while(choicesAreUnqiue == false){
+        choices = [englishTranslationArray[0],englishTranslationArray[1],englishTranslationArray[2]]
+        if(choices.includes(currentWordEnglish)){
+          choices = []
+          shuffle(englishTranslationArray);
+        } else {
+          choicesAreUnqiue = true;
+        }
+        choices.push(currentWordEnglish)
+      } 
+      // choices = [englishTranslationArray[0],englishTranslationArray[1],englishTranslationArray[2],currentWordEnglish];
       shuffle(choices);
       questionChoicesObject['a'] = choices[0].trim().toLowerCase();
       questionChoicesObject['b'] = choices[1].trim().toLowerCase();

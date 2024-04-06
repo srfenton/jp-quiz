@@ -1,0 +1,31 @@
+ちち, père
+はは, mère
+そふ, grand-père
+そぼ, grand-mère
+むすこ, fils
+むすめ, fille
+あに, frère
+あね, sœur
+おとうと, petit frère
+いもうと, petite sœur
+おじ, oncle
+おば, tante
+いとこ, cousin (masculin)
+いとこ, cousine (féminin)
+おい, neveu
+めい, nièce
+まご, petit-fils/petite-fille
+ちちおや, papa
+ははおや, maman
+おかあさん, mère
+おとうさん, père
+かいいぬ, Chien
+ねこ, Chat
+とり, Oiseau
+うさぎ, Lapin
+へび, Serpent
+かめ, Tortue
+ねずみ, Souris
+こうもり, Chauve-souris
+やまあらし, Hérisson
+かえる, Grenouille
