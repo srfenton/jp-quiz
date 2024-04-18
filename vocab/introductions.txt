@@ -1,0 +1,15 @@
+おはようございます, Good morning
+こんにちは, Good afternoon
+こんばんは, Good evening
+さようなら, Good-bye
+ありがとう, Thank you
+すみません, Excuse me; I'm sorry
+いいえ、けっこうです, No; not at all
+いってきます, I'll go and come back
+がくせい, I'm home
+おかえりなさい, Welcome home
+いただきます, Thank you for the meal (before eating)
+ごちそうさまでした, Thank you for the meal (after eating)
+はじめまして, How do you do?
+～です, I am...
+どうぞよろしく, Nice to meet you
