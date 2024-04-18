@@ -1,7 +1,7 @@
 var fs = require('fs'); 
 const { userInfo } = require('os');
 
-fs.readFile('lesson-3.txt', 'utf8', function (err, file) {
+fs.readFile('vocab/lesson-3.txt', 'utf8', function (err, file) {
   if (err) throw err;
   let lines = file.split('\n');
   const vocabBank = {};
