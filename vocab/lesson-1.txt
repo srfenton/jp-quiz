@@ -1,5 +1,3 @@
-Sure, here's the list without bullet points:
-
 だいがく, university
 こうこう, high school
 がくせい, student
@@ -9,7 +7,7 @@ Sure, here's the list without bullet points:
 ...ねんせい, ...th year student
 いちねんせい, first year student
 せんこう, major
-わたし, I, me
+わたし, I / me
 ともだち, friend
 ...さん, Mr./Ms.
 ...じん, person from...
