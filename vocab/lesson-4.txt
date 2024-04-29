@@ -37,7 +37,7 @@
 ある,there is...(place に thing が)
 かう, to buy
 かく, to write
-,とる, to take (a picture)
+とる, to take (a picture)
 まつ, to wait
 わかる, to understand
 いる, (a person) is in...; stays at...
