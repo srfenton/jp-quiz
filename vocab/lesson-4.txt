@@ -33,7 +33,7 @@
 すいようび, wednesday
 もくようび, thursday
 きんようび, friday
-あう, to meet; to see (place に person が), 
+あう, to meet; to see (place に person が)
 ある,there is...(place に thing が)
 かう, to buy
 かく, to write
