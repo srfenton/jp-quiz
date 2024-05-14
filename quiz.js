@@ -32,7 +32,6 @@ rl.question('Please enter the number corresponding to the lesson you wish to stu
   lessonChoice = lessonChoice.trim();
   
   console.log('You have chosen, ', lessonBank[parseInt(lessonChoice)])
-
   fs.readFile('vocab/'+lessonBank[parseInt(lessonChoice)], 'utf8', function (err, file) {
     if (err) throw err;
     let lines = file.split('\n');
