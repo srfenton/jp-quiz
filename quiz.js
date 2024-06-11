@@ -74,6 +74,7 @@ rl.question('Please enter the number corresponding to the lesson you wish to stu
     let incorrect = 0;
     let questionChoicesObject = {};
     let choices = [];
+    let missedWordsList = [];
 
     function excludeCorrectAnswer(array, correctAnswer){
       return array.filter(item => item !== correctAnswer);
@@ -99,6 +100,11 @@ rl.question('Please enter the number corresponding to the lesson you wish to stu
         };
       } else {
           console.log('that\'s all the words in the test');
+          console.log(`\n score: ${correct} / ${correct+incorrect}`);
+          console.log('\n your missedwords are: \n');
+          missedWordsList.forEach(element => {
+            console.log(`${element} : ${vocabBank[element]}`);
+          });
           rl.close()
           process.exit()
       } 
@@ -124,6 +130,7 @@ rl.question('Please enter the number corresponding to the lesson you wish to stu
           console.log('\n correct'); 
         } else {
           incorrect++;
+          missedWordsList.push(currentWord)
           console.log('\n incorrect, ', vocabBank[currentWord], ' is the correct answer');
         }
         console.log('\n',correct, ' correct | ', incorrect, ' incorrect','\n')
