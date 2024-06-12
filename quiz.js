@@ -80,6 +80,9 @@ rl.question('Please enter the number corresponding to the lesson you wish to stu
       return array.filter(item => item !== correctAnswer);
       }
 
+
+
+
     function nextWord(){
       if(currentIndex < 5) {
       // if(currentIndex < japaneseTranslationArray.length) { un-comment this line and comment out the one above for a longer test
@@ -142,5 +145,4 @@ rl.question('Please enter the number corresponding to the lesson you wish to stu
       
     });
   }); 
-  // rl.close();
 });
