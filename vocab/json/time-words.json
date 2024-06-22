@@ -1,0 +1,26 @@
+{
+    "title": "時間の言葉",
+    "translations": {
+      "おととい": "the day before yesterday",
+      "きのう": "yesterday",
+      "きょう": "today",
+      "あした": "tomorrow",
+      "あさって": "the day after tomorrow",
+      "にしゅうかんまえ": "two weeks ago",
+      "せんしゅう": "last week",
+      "こんしゅう": "this week",
+      "らいしゅう": "next week",
+      "さらいしゅう": "the week after next",
+      "にかげつまえ": "two months ago",
+      "せんげつ": "last month",
+      "こんげつ": "this month",
+      "らいげつ": "next month",
+      "さらいげつ": "the month after next",
+      "おととし": "the year before last",
+      "きょねん": "last year",
+      "ことし": "this year",
+      "らいねん": "next year",
+      "さらいねん": "the year after next"
+    }
+  }
+  
