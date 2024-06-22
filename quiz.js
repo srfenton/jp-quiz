@@ -41,7 +41,7 @@ rl.question('Please enter the number corresponding to the lesson you wish to stu
     let japaneseTranslationArray = Object.keys(vocabBank['translations']);
     let englishTranslationArray = [];
     japaneseTranslationArray.forEach(element => {
-      let formatted_element = vocabBank['translations'][element].trim().toLowerCase();
+      let formatted_element = vocabBank['translations'][element]//.trim().toLowerCase();
       englishTranslationArray.push(formatted_element);
     });
 
@@ -81,10 +81,10 @@ rl.question('Please enter the number corresponding to the lesson you wish to stu
         let incorrectAnswerPool = excludeCorrectAnswer(englishTranslationArray, currentWordEnglish);
         choices = [incorrectAnswerPool[0],incorrectAnswerPool[1],incorrectAnswerPool[2],currentWordEnglish];
         shuffle(choices);
-        questionChoicesObject['a'] = choices[0].trim().toLowerCase();
-        questionChoicesObject['b'] = choices[1].trim().toLowerCase();
-        questionChoicesObject['c'] = choices[2].trim().toLowerCase();
-        questionChoicesObject['d'] = choices[3].trim().toLowerCase();
+        questionChoicesObject['a'] = choices[0]//.trim().toLowerCase();
+        questionChoicesObject['b'] = choices[1]//.trim().toLowerCase();
+        questionChoicesObject['c'] = choices[2]//.trim().toLowerCase();
+        questionChoicesObject['d'] = choices[3]//.trim().toLowerCase();
         
         for (let choice in questionChoicesObject) {
           const question = questionChoicesObject[choice];
