@@ -1,11 +1,12 @@
 var fs = require('fs'); 
 const { userInfo } = require('os');
+const path = require('path');
 const readline = require('readline');
 
 let lessonCount = 1
 let lessonBank = {}
 // Define the directory path
-const directoryPath = 'vocab/';
+const directoryPath = 'vocab/json';
 
 // Read the contents of the directory
 fs.readdir(directoryPath, (err, files) => {
@@ -16,9 +17,10 @@ fs.readdir(directoryPath, (err, files) => {
   
   // Log the name of each file
   files.forEach(file => {
-    console.log(lessonCount,'. ', file);
-    lessonBank[lessonCount] = file;
-    lessonCount++;
+    if (path.extname(file).toLowerCase() === '.json'){
+      console.log(lessonCount,'. ', file);
+      lessonBank[lessonCount] = file;
+      lessonCount++;}
   });
   console.log('\n')
 });
@@ -32,31 +34,17 @@ rl.question('Please enter the number corresponding to the lesson you wish to stu
   lessonChoice = lessonChoice.trim();
   
   console.log('You have chosen, ', lessonBank[parseInt(lessonChoice)])
-  fs.readFile('vocab/'+lessonBank[parseInt(lessonChoice)], 'utf8', function (err, file) {
+  
+  fs.readFile(`vocab/json/${lessonBank[parseInt(lessonChoice)]}`, 'utf8', function (err, file) {
     if (err) throw err;
-    let lines = file.split('\n');
-    const vocabBank = {};
-    let japaneseTranslationArray = [];
+    const vocabBank = JSON.parse(file)
+    let japaneseTranslationArray = Object.keys(vocabBank['translations']);
     let englishTranslationArray = [];
-    let japananeseWord = '';
-    let englishWord = '';
-    lines.forEach(element => {
-      let vocabulary = element.split(',');
-      for (let i = 0; i < vocabulary.length; i+=2) {
-        japananeseWord = vocabulary[i];
-        englishWord = vocabulary[i+1];
-        japananeseWord = japananeseWord.trim();
-        englishWord = englishWord.trim();
-        englishWord = englishWord.toLowerCase();
-        vocabBank[japananeseWord]= englishWord;
-        japaneseTranslationArray.push(japananeseWord);
-        englishTranslationArray.push(englishWord);
-      };
+    japaneseTranslationArray.forEach(element => {
+      let formatted_element = vocabBank['translations'][element].trim().toLowerCase();
+      englishTranslationArray.push(formatted_element);
     });
-    
 
-
-  console.log('\n');
 
 
     function shuffle(array) {
@@ -86,7 +74,8 @@ rl.question('Please enter the number corresponding to the lesson you wish to stu
     function nextWord(){
       if(currentIndex < 5) {
       // if(currentIndex < japaneseTranslationArray.length) { un-comment this line and comment out the one above for a longer test
-        let currentWordEnglish = vocabBank[japaneseTranslationArray[currentIndex]]
+        let currentWordEnglish = vocabBank['translations'][japaneseTranslationArray[currentIndex]]
+        
         console.log(currentIndex+1,'. ',japaneseTranslationArray[currentIndex], ': \n');
         shuffle(englishTranslationArray);
         let incorrectAnswerPool = excludeCorrectAnswer(englishTranslationArray, currentWordEnglish);
@@ -106,7 +95,7 @@ rl.question('Please enter the number corresponding to the lesson you wish to stu
           console.log(`\n score: ${correct} / ${correct+incorrect}`);
           console.log('\n your missedwords are: \n');
           missedWordsList.forEach(element => {
-            console.log(`${element} : ${vocabBank[element]}`);
+            console.log(`${element} : ${vocabBank['translations'][element]}`);
           });
           rl.close()
           process.exit()
@@ -128,13 +117,13 @@ rl.question('Please enter the number corresponding to the lesson you wish to stu
       userInput = userInput.toLowerCase();
       //convert user unput to vocab word
       if(['a', 'b', 'c', 'd'].includes(userInput)){
-        if (vocabBank[currentWord] === questionChoicesObject[userInput]){
+        if (vocabBank['translations'][currentWord] === questionChoicesObject[userInput]){
           correct++;
           console.log('\n correct'); 
         } else {
           incorrect++;
           missedWordsList.push(currentWord)
-          console.log('\n incorrect, ', vocabBank[currentWord], ' is the correct answer');
+          console.log('\n incorrect, ', vocabBank['translations'][currentWord], ' is the correct answer');
         }
         console.log('\n',correct, ' correct | ', incorrect, ' incorrect','\n')
         currentIndex++;
