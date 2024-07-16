@@ -93,10 +93,12 @@ rl.question('Please enter the number corresponding to the lesson you wish to stu
       } else {
           console.log('that\'s all the words in the test');
           console.log(`\n score: ${correct} / ${correct+incorrect}`);
-          console.log('\n your missedwords are: \n');
-          missedWordsList.forEach(element => {
-            console.log(`${element} : ${vocabBank['translations'][element]}`);
-          });
+          if(missedWordsList.length > 0){
+            console.log('\n your missedwords are: \n');
+            missedWordsList.forEach(element => {
+              console.log(`${element} : ${vocabBank['translations'][element]}`);
+              });
+          }
           rl.close()
           process.exit()
       } 
