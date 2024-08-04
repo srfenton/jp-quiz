@@ -99,6 +99,7 @@ rl.question('Please enter the number corresponding to the lesson you wish to stu
               console.log(`${element} : ${vocabBank['translations'][element]}`);
               });
           }
+
           rl.close()
           process.exit()
       } 

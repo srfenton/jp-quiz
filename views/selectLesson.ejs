@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select a Lesson</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0;
+        }
+        li {
+            margin: 2px 0; /* Reduce space between items */
+        }
+        .lesson-link {
+            text-decoration: none; /* Remove underline */
+            color: #000; /* Black text */
+        }
+    </style>
+</head>
+<body>
+    <h1>Select a Lesson</h1>
+    <ul>
+        <% for (let key in jsonData) { %>
+            <li>
+                <form action="/quiz/<%= jsonData[key] %>" method="POST">
+                    <button type="submit" class="lesson-link"><%= jsonData[key] %></button>
+                </form>
+            </li>
+        <% } %>
+    </ul>
+    <a href="/">Go back to Home Page</a>
+</body>
+</html>
