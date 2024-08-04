@@ -31,14 +31,11 @@ app.post('/quiz/:lessonFile', async (req, res) => {
         //unpack some values from the vocab bank object
         let quizQuestionsObject = await generateQuizQuestionsObject(vocabBankObject);
         let questionNumber = currentIndex + 1;
-        let currentQuizQuestion = quizQuestionsObject[currentIndex];
-        let currentWord = Object.keys(currentQuizQuestion[questionNumber])[0]
+        let currentQuizQuestion = quizQuestionsObject[questionNumber];
+        let currentWord = Object.keys(currentQuizQuestion)[0]
         let choices = quizQuestionsObject[questionNumber][currentWord];
 
-        
- 
-    
-        res.render('displayWord', { jsonData: choices });
+        res.render('displayWord', { jsonData: choices, word : currentWord });
     } catch (error) {
         console.error('Error generating vocab object:', error);
         res.status(500).send('Internal Server Error');
