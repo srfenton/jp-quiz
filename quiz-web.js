@@ -122,9 +122,10 @@ function generateQuizQuestionsObject(vocabBankObject){
 
   return quizQuestionsObject
 }
-test = generateQuizQuestionsObject(generateVocabBankObject('lesson-6-vocab.json'))
-currentWord = Object.keys(test[14])[0]
-console.log(test[14][currentWord])
+test = generateQuizQuestionsObject(generateVocabBankObject('lesson-6-vocab.json')) //clean all this up later
+// currentWord = Object.keys(test[14])[0] //clean all this up later
+// console.log(currentWord)
+// console.log(test[14][currentWord]) //clean all this up later
 // console.log(generateQuizQuestionsObject(generateVocabBankObject('lesson-6-vocab.json'))) //testing
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
