@@ -82,6 +82,8 @@ app.post('/submit/:answer', async (req, res) => {
             result = 'false';
             incorrect++
             missedWordsList.push(currentWord)
+            console.log(`${submittedAnswer} was submitted`)
+            console.log(`${correctAnswer} is correct`)
         }
 
         res.render('submit', { questionNumber: questionNumber, result : result });
