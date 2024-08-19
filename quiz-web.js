@@ -3,7 +3,7 @@ var fs = require('fs');
 const path = require('path');
 const { userInfo } = require('os');
 
-//initialize global test variables
+//initialize global test variables for testing
 let testLength = 5;
 let currentIndex = 0;
 let correct = 0;
@@ -26,9 +26,7 @@ function generateLessonBankObject() {
     console.error('Error reading directory:', err);
 }
 
-
   return lessonBank;
-
 };
 
 // let lessonBank = generateLessonBankObject();
@@ -72,8 +70,9 @@ function generateVocabBankObject(lessonChoice) {
 }
 }
 
-// let vocabObject = generateVocabObject('lesson-1-vocab.json');
-// console.log(vocabObject); //testing
+// let vocabObject = generateVocabBankObject('lesson-1-vocab.json');
+// let currentWord = 'だいがく';
+// console.log(vocabObject.vocabBank.translations[currentWord]); //testing
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  
 
@@ -122,13 +121,14 @@ function generateQuizQuestionsObject(vocabBankObject){
 
   return quizQuestionsObject
 }
-test = generateQuizQuestionsObject(generateVocabBankObject('lesson-6-vocab.json')) //clean all this up later
+// test = generateQuizQuestionsObject(generateVocabBankObject('lesson-6-vocab.json')) //clean all this up later
 // currentWord = Object.keys(test[14])[0] //clean all this up later
 // console.log(currentWord)
 // console.log(test[14][currentWord]) //clean all this up later
 // console.log(generateQuizQuestionsObject(generateVocabBankObject('lesson-6-vocab.json'))) //testing
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //core function of the quiz program
 // function nextWord(){
 //   while(currentIndex < testLength) {
@@ -144,7 +144,7 @@ test = generateQuizQuestionsObject(generateVocabBankObject('lesson-6-vocab.json'
 //     questionChoicesObject['d'] = choices[3].trim().toLowerCase();
     
 //     for (let choice in questionChoicesObject) {
-//       const question = questionChoicesObject[choice];
+//       question = questionChoicesObject[choice];
 //       console.log(`${choice}: ${question} \n`);
 //     };
 //   } 
