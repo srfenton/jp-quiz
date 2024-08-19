@@ -1,8 +1,21 @@
 const express = require('express');
-const { generateLessonBankObject, generateVocabBankObject, generateQuizQuestionsObject, currentIndex } = require('./quiz-web');
+const { generateLessonBankObject, generateVocabBankObject, generateQuizQuestionsObject } = require('./quiz-web');
 const path = require('path');
 const app = express();
 const port = 3000;
+//initialize test values
+let testLength = 5;
+let currentIndex = 0;
+let correct = 0;
+let incorrect = 0;
+let missedWordsList = [];
+let lessonChoice = '';
+let vocabBankObject = '';
+let questionNumber = '';
+let quizQuestionsObject;
+let currentQuizQuestion = '';
+let currentWord = '';
+let choices = '';
 
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
@@ -15,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Define the home route
 app.get('/', (req, res) => {
+    currentIndex = 0;
     res.render('index');
 });
 
@@ -25,17 +39,11 @@ app.get('/selectlesson', (req, res) => {
 });
 
 app.post('/quiz/:lessonFile', async (req, res) => {
-    const lessonChoice = req.params.lessonFile;;
+    lessonChoice = req.params.lessonFile;
     try {
-        const vocabBankObject = await generateVocabBankObject(lessonChoice);
-        //unpack some values from the vocab bank object
-        let quizQuestionsObject = await generateQuizQuestionsObject(vocabBankObject);
-        let questionNumber = currentIndex + 1;
-        let currentQuizQuestion = quizQuestionsObject[questionNumber];
-        let currentWord = Object.keys(currentQuizQuestion)[0]
-        let choices = quizQuestionsObject[questionNumber][currentWord];
-
-        res.render('displayWord', { jsonData: choices, word : currentWord });
+        vocabBankObject = await generateVocabBankObject(lessonChoice);
+        quizQuestionsObject = await generateQuizQuestionsObject(vocabBankObject);
+        res.redirect('/quiz/question/');
     } catch (error) {
         console.error('Error generating vocab object:', error);
         res.status(500).send('Internal Server Error');
@@ -43,11 +51,49 @@ app.post('/quiz/:lessonFile', async (req, res) => {
 });
 
 
-app.get('/quiz/{lesson}', (req, res) => {
-    let lessonBank = generateLessonBankObject();
-    console.log(lessonBank)
-    res.render('selectLesson', { jsonData: lessonBank });
+app.get('/quiz/question/', async (req, res) => {
+    if(currentIndex < Object.keys(quizQuestionsObject).length){
+        questionNumber = currentIndex + 1;
+        currentQuizQuestion = quizQuestionsObject[questionNumber];
+        currentWord = Object.keys(currentQuizQuestion)[0]
+        choices = quizQuestionsObject[questionNumber][currentWord];
+        try {
+        res.render('displayWord', { jsonData: choices, word : currentWord });
+        } catch (error) {
+            console.error('Error generating vocab object:', error);
+            res.status(500).send('Internal Server Error');
+        }
+    } else{
+        res.render('summary', { correct: correct, incorrect : incorrect, missedWordsList: missedWordsList });
+    }
 });
+
+
+app.post('/submit/:answer', async (req, res) => {
+    let submittedAnswer = req.params.answer;
+    let correctAnswer = '';
+    correctAnswer = vocabBankObject.vocabBank.translations[currentWord].toLowerCase()
+    let result = '';
+    try {
+        if(submittedAnswer===correctAnswer){
+            result = 'correct';
+            correct++
+        }else{
+            result = 'false';
+            incorrect++
+            missedWordsList.push(currentWord)
+        }
+
+        res.render('submit', { questionNumber: questionNumber, result : result });
+        currentIndex++
+    } catch (error) {
+        console.error('Error generating vocab object:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+
+
 
 // Start the server
 app.listen(port, () => {

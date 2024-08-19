@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/styles.css">
     <style>
         ul {
-            list-style-type: none; /* Remove bullet points */
+            list-style-type: upper-roman; /* Remove bullet points */
             padding: 0;
         }
         li {
@@ -20,16 +20,16 @@
     </style>
 </head>
 <body>
-    <h1><%= word %></h1>
-    <ul>
-        <% for (let key in jsonData) { %>
-            <li>
-                <form action="/submit/<%= jsonData[key] %>" method="POST">
-                    <button type="submit" class="lesson-link"><%= jsonData[key] %></button>
-                </form>
-            </li>
-        <% } %>
-    </ul>
+    <h1><%= ((correct / (correct + incorrect)) * 100).toFixed(2) %>%</h1>
+    </br>
+    <h2>correct: <%= correct %></h2>
+    <h2>incorrect: <%= incorrect %></h2>
+
+<p>missed words:</p>
+    <% for (let x in missedWordsList) { %>
+        <li><%= missedWordsList[x] %></li>
+    <% } %>
+
     <a href="/">Go back to Home Page</a>
 </body>
 </html>
