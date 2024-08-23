@@ -29,6 +29,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Define the home route
 app.get('/', (req, res) => {
     currentIndex = 0;
+    missedWordsList = []; //reset this value
+    correct = 0; //reset this value
+    incorrect = 0;  //reset this value
     res.render('index');
 });
 
