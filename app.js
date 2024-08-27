@@ -60,8 +60,10 @@ app.get('/quiz/question/', async (req, res) => {
         currentQuizQuestion = quizQuestionsObject[questionNumber];
         currentWord = Object.keys(currentQuizQuestion)[0]
         choices = quizQuestionsObject[questionNumber][currentWord];
+        correctAnswer = vocabBankObject.vocabBank.translations[currentWord].trim().toLowerCase()
+        console.log(`${correctAnswer} is the correctAnswer`)
         try {
-        res.render('displayWord', { jsonData: choices, word : currentWord });
+        res.render('displayWord', { jsonData: choices, word : currentWord, correctAnswer : correct });
         } catch (error) {
             console.error('Error generating vocab object:', error);
             res.status(500).send('Internal Server Error');
@@ -72,8 +74,10 @@ app.get('/quiz/question/', async (req, res) => {
 });
 
 
-app.post('/submit/:answer', async (req, res) => {
-    let submittedAnswer = req.params.answer;
+// app.post('/submit/:answer', async (req, res) => {
+app.post('/submit', async (req, res) => {
+    // let submittedAnswer = req.params.answer;
+    let submittedAnswer = req.query.answer;
     let correctAnswer = '';
     correctAnswer = vocabBankObject.vocabBank.translations[currentWord].trim().toLowerCase()
     let result = '';
