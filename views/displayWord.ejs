@@ -24,7 +24,7 @@
     <ul>
         <% for (let key in jsonData) { %>
             <li>
-                <form action="/submit/<%= jsonData[key] %>" method="POST">
+                <form action="/submit?answer=<%= jsonData[key] %>" method="POST">
                     <button type="submit" class="lesson-link"><%= jsonData[key] %></button>
                 </form>
             </li>
