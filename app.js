@@ -75,7 +75,7 @@ app.get('/quiz/question/', async (req, res) => {
 app.post('/submit/:answer', async (req, res) => {
     let submittedAnswer = req.params.answer;
     let correctAnswer = '';
-    correctAnswer = vocabBankObject.vocabBank.translations[currentWord].toLowerCase()
+    correctAnswer = vocabBankObject.vocabBank.translations[currentWord].trim().toLowerCase()
     let result = '';
     try {
         if(submittedAnswer===correctAnswer){
