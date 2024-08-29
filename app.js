@@ -88,7 +88,7 @@ app.post('/submit', async (req, res) => {
         }else{
             result = 'false';
             incorrect++
-            missedWordsList.push(currentWord)
+            missedWordsList.push(`${currentWord} (${correctAnswer})`)
             console.log(`${submittedAnswer} was submitted`)
             console.log(`${correctAnswer} is correct`)
         }
