@@ -3,108 +3,113 @@ const { generateLessonBankObject, generateVocabBankObject, generateQuizQuestions
 const path = require('path');
 const app = express();
 const port = 3000;
-//initialize test values
-let testLength = 5;
-let currentIndex = 0;
-let correct = 0;
-let incorrect = 0;
-let missedWordsList = [];
-let lessonChoice = '';
-let vocabBankObject = '';
-let questionNumber = '';
-let quizQuestionsObject;
-let currentQuizQuestion = '';
-let currentWord = '';
-let choices = '';
 
-// Set the view engine to EJS
+// Initialize quiz-related variables
+let testLength = 5;            // Total number of quiz questions
+let currentIndex = 0;          // Tracks current question index
+let correct = 0;               // Correct answer counter
+let incorrect = 0;             // Incorrect answer counter
+let missedWordsList = [];      // Stores missed words for review
+let lessonChoice = '';         // Holds the selected lesson file
+let vocabBankObject = '';      // Holds vocab data for the current lesson
+let questionNumber = '';       // Tracks the current question number
+let quizQuestionsObject;       // Stores the generated quiz questions
+let currentQuizQuestion = '';  // Stores the current quiz question
+let currentWord = '';          // Current word in the quiz
+let choices = '';              // Holds the choices for the current question
+
+// Set EJS as the view engine
 app.set('view engine', 'ejs');
 
-// Set the views directory
+// Set the directory for views
 app.set('views', path.join(__dirname, 'views'));
 
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Define the home route
+// Home route - resets quiz state and renders the homepage
 app.get('/', (req, res) => {
-    currentIndex = 0;
-    missedWordsList = []; //reset this value
-    correct = 0; //reset this value
-    incorrect = 0;  //reset this value
-    res.render('index');
+    currentIndex = 0;         // Reset current question index
+    missedWordsList = [];     // Reset missed words list
+    correct = 0;              // Reset correct answer count
+    incorrect = 0;            // Reset incorrect answer count
+    res.render('index');      // Render the homepage
 });
 
-// Define the JSON route
+// Route for selecting a lesson file
 app.get('/selectlesson', (req, res) => {
-    let lessonBank = generateLessonBankObject();
-    res.render('selectLesson', { jsonData: lessonBank });
+    let lessonBank = generateLessonBankObject(); // Generate list of available lessons
+    res.render('selectLesson', { jsonData: lessonBank }); // Render lesson selection page
 });
 
+// Route for starting the quiz with the selected lesson
 app.post('/quiz/:lessonFile', async (req, res) => {
-    lessonChoice = req.params.lessonFile;
+    lessonChoice = req.params.lessonFile; // Capture the selected lesson file
     try {
+        // Generate vocab data and quiz questions
         vocabBankObject = await generateVocabBankObject(lessonChoice);
         quizQuestionsObject = await generateQuizQuestionsObject(vocabBankObject);
-        res.redirect('/quiz/question/');
+        res.redirect('/quiz/question/'); // Redirect to the first question
     } catch (error) {
         console.error('Error generating vocab object:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(500).send('Internal Server Error'); // Error handling
     }
 });
 
-
+// Route for displaying the current quiz question
 app.get('/quiz/question/', async (req, res) => {
-    if(currentIndex < Object.keys(quizQuestionsObject).length){
-        questionNumber = currentIndex + 1;
-        currentQuizQuestion = quizQuestionsObject[questionNumber];
-        currentWord = Object.keys(currentQuizQuestion)[0]
-        choices = quizQuestionsObject[questionNumber][currentWord];
-        correctAnswer = vocabBankObject.vocabBank.translations[currentWord].trim().toLowerCase()
-        console.log(`${correctAnswer} is the correctAnswer`)
+    // Check if there are remaining questions
+    if (currentIndex < Object.keys(quizQuestionsObject).length) {
+        questionNumber = currentIndex + 1;                 // Set the current question number
+        currentQuizQuestion = quizQuestionsObject[questionNumber]; // Get the current question data
+        currentWord = Object.keys(currentQuizQuestion)[0]; // Get the current Japanese word
+        choices = quizQuestionsObject[questionNumber][currentWord]; // Get the answer choices
+        correctAnswer = vocabBankObject.vocabBank.translations[currentWord].trim().toLowerCase(); // Correct answer
+
+        console.log(`${correctAnswer} is the correctAnswer`); // Log correct answer for debugging
+
         try {
-        res.render('displayWord', { jsonData: choices, word : currentWord, correctAnswer : correct });
+            // Render the question page with choices
+            res.render('displayWord', { jsonData: choices, word: currentWord, correctAnswer: correct });
         } catch (error) {
-            console.error('Error generating vocab object:', error);
-            res.status(500).send('Internal Server Error');
+            console.error('Error rendering question:', error);
+            res.status(500).send('Internal Server Error'); // Error handling
         }
-    } else{
-        res.render('summary', { correct: correct, incorrect : incorrect, missedWordsList: missedWordsList });
+    } else {
+        // If no more questions, render the summary page
+        res.render('summary', { correct: correct, incorrect: incorrect, missedWordsList: missedWordsList });
     }
 });
 
-
-// app.post('/submit/:answer', async (req, res) => {
+// Route for submitting an answer and checking correctness
 app.post('/submit', async (req, res) => {
-    // let submittedAnswer = req.params.answer;
-    let submittedAnswer = req.query.answer;
-    let correctAnswer = '';
-    correctAnswer = vocabBankObject.vocabBank.translations[currentWord].trim().toLowerCase()
-    let result = '';
+    let submittedAnswer = req.query.answer; // Get the submitted answer
+    let correctAnswer = vocabBankObject.vocabBank.translations[currentWord].trim().toLowerCase(); // Correct answer
+    let result = ''; // Initialize result as correct/incorrect
+
     try {
-        if(submittedAnswer===correctAnswer){
+        // Check if the submitted answer is correct
+        if (submittedAnswer === correctAnswer) {
             result = 'correct';
-            correct++
-        }else{
+            correct++; // Increment correct answer count
+        } else {
             result = 'false';
-            incorrect++
-            missedWordsList.push(`${currentWord} (${correctAnswer})`)
-            console.log(`${submittedAnswer} was submitted`)
-            console.log(`${correctAnswer} is correct`)
+            incorrect++; // Increment incorrect answer count
+            missedWordsList.push(`${currentWord} (${correctAnswer})`); // Add missed word to list
+            console.log(`${submittedAnswer} was submitted`);
+            console.log(`${correctAnswer} is correct`);
         }
 
-        res.render('submit', { questionNumber: questionNumber, result : result });
-        currentIndex++
+        // Render the result page
+        res.render('submit', { questionNumber: questionNumber, result: result });
+        currentIndex++; // Move to the next question
     } catch (error) {
-        console.error('Error generating vocab object:', error);
-        res.status(500).send('Internal Server Error');
+        console.error('Error processing submission:', error);
+        res.status(500).send('Internal Server Error'); // Error handling
     }
 });
 
-
-
-
-// Start the server
+// Start the server and listen on the specified port
 app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
+    console.log(`Server is running at http://localhost:${port}`); // Log the server URL
 });
