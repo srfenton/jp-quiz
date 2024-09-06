@@ -1,165 +1,104 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var fs = require('fs'); 
 const path = require('path');
 const { userInfo } = require('os');
 
-//initialize global test variables for testing
-let testLength = 5;
-let currentIndex = 0;
-let correct = 0;
-let incorrect = 0;
-let missedWordsList = [];
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//this function reads the contents of a directory and returns an object them as the value of lesson number properties
+// Global variables for quiz tracking
+let testLength = 5;      // Number of quiz questions
+let currentIndex = 0;    // Tracks current quiz question index
+let correct = 0;         // Correct answer counter
+let incorrect = 0;       // Incorrect answer counter
+let missedWordsList = []; // List to store missed words
+
+// Function to read files from the vocabulary directory and return an object mapping lessons by number
 function generateLessonBankObject() {
-  let lessonCount = 1
-  let lessonBank = {}
-  const directoryPath = path.join(__dirname, 'vocab/json');
-  // Read the contents of the directory
+  let lessonCount = 1;  // Tracks the lesson number
+  let lessonBank = {};  // Stores lesson files mapped to lesson numbers
+  const directoryPath = path.join(__dirname, 'vocab/json'); // Path to vocabulary directory
+  
   try {
+    // Read and store each file in the directory
     const files = fs.readdirSync(directoryPath);
     files.forEach(file => {
-        lessonBank[lessonCount] = file;
-        lessonCount++;
+      lessonBank[lessonCount] = file;
+      lessonCount++;
     });
-} catch (err) {
-    console.error('Error reading directory:', err);
-}
+  } catch (err) {
+    console.error('Error reading directory:', err); // Error handling
+  }
 
   return lessonBank;
 };
 
-// let lessonBank = generateLessonBankObject();
-// console.log(lessonBank) //testing
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// the code below will generate the vocab arrays and object for the quiz
-//NEW VERSION
-
-
+// Function to read a selected lesson file and extract Japanese/English translations for quiz
 function generateVocabBankObject(lessonChoice) {
-  
   try {
-    // Use readFileSync to read the file synchronously
+    // Read the selected lesson file
     const file = fs.readFileSync(`vocab/json/${lessonChoice}`, 'utf8');
-    
-    // Parse the JSON file
-    const vocabBank = JSON.parse(file);
-    
-    // Extract Japanese and English translations
+    const vocabBank = JSON.parse(file); // Parse JSON content
+
+    // Create arrays for Japanese and corresponding English translations
     let japaneseTranslationArray = Object.keys(vocabBank['translations']);
-    let englishTranslationArray = [];
-    
-    japaneseTranslationArray.forEach(element => {
-        let formatted_element = vocabBank['translations'][element]; 
-        englishTranslationArray.push(formatted_element);
-    });
+    let englishTranslationArray = japaneseTranslationArray.map(element => vocabBank['translations'][element]);
 
-    // Return the result
+    // Return structured vocab data for the quiz
     return {
-        'japaneseTranslationArray': japaneseTranslationArray,
-        'englishTranslationArray': englishTranslationArray,
-        'vocabBank' : vocabBank
+      'japaneseTranslationArray': japaneseTranslationArray,
+      'englishTranslationArray': englishTranslationArray,
+      'vocabBank': vocabBank
     };
-} catch (err) {
-    console.error('Error reading or parsing vocab file:', err);
-    throw err; // Rethrow the error for handling in the calling function
+  } catch (err) {
+    console.error('Error reading or parsing vocab file:', err); // Error handling
+    throw err;
+  }
 }
-}
 
-// let vocabObject = generateVocabBankObject('lesson-1-vocab.json');
-// let currentWord = 'だいがく';
-// console.log(vocabObject.vocabBank.translations[currentWord]); //testing
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
- 
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// function shuffle array
+// Utility function to shuffle an array using the Fisher-Yates algorithm
 function shuffle(array) {
-  for (let i = array.length-1; i > 0; i-- ) {
+  for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+    [array[i], array[j]] = [array[j], array[i]]; // Swap elements
   }
   return array;
-};
+}
 
-// vocabBank[japaneseTranslationArray] = shuffle(vocabBank[japaneseTranslationArray]);
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Function to remove the correct answer from the answer pool for multiple-choice generation
+function excludeCorrectAnswer(array, correctAnswer) {
+  return array.filter(item => item !== correctAnswer); // Exclude correct answer
+}
 
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//function that excludes the correct answer when generating multiple choice answers
-function excludeCorrectAnswer(array, correctAnswer){
-  return array.filter(item => item !== correctAnswer);
-  }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function generateQuizQuestionsObject(vocabBankObject){
-  let quizQuestionsObject = {};
-  vocabBankObject.japaneseTranslationArray = shuffle(vocabBankObject.japaneseTranslationArray);
-  for(let i = 0; i < vocabBankObject.japaneseTranslationArray.length; i++){
-    let questionChoicesObject = {};
-    let choices = [];
+// Function to generate quiz questions from a vocab bank, with shuffled choices
+function generateQuizQuestionsObject(vocabBankObject) {
+  let quizQuestionsObject = {}; // Stores quiz questions
+  vocabBankObject.japaneseTranslationArray = shuffle(vocabBankObject.japaneseTranslationArray); // Shuffle question order
+  
+  // Loop through each Japanese word to generate a question
+  for (let i = 0; i < vocabBankObject.japaneseTranslationArray.length; i++) {
+    let questionChoicesObject = {}; // Stores multiple-choice options
     let currentWordEnglish = vocabBankObject.vocabBank.translations[vocabBankObject.japaneseTranslationArray[i]];
     let currentWordJapanese = vocabBankObject.japaneseTranslationArray[i];
-    shuffle(vocabBankObject.englishTranslationArray);
+
+    // Prepare answer choices (3 incorrect + 1 correct)
     let incorrectAnswerPool = excludeCorrectAnswer(vocabBankObject.englishTranslationArray, currentWordEnglish);
-    choices = [incorrectAnswerPool[0],incorrectAnswerPool[1],incorrectAnswerPool[2],currentWordEnglish];
-    shuffle(choices);
+    let choices = [incorrectAnswerPool[0], incorrectAnswerPool[1], incorrectAnswerPool[2], currentWordEnglish];
+    shuffle(choices); // Shuffle the answer choices
+    
+    // Assign shuffled choices to answer options 'a', 'b', 'c', and 'd'
     questionChoicesObject['a'] = choices[0].trim().toLowerCase();
     questionChoicesObject['b'] = choices[1].trim().toLowerCase();
     questionChoicesObject['c'] = choices[2].trim().toLowerCase();
     questionChoicesObject['d'] = choices[3].trim().toLowerCase();
 
-    quizQuestionsObject[i+1] = { [currentWordJapanese] : questionChoicesObject } 
+    // Store the question and its choices in the quiz object
+    quizQuestionsObject[i + 1] = { [currentWordJapanese]: questionChoicesObject };
   }
 
-  return quizQuestionsObject
+  return quizQuestionsObject;
 }
-// test = generateQuizQuestionsObject(generateVocabBankObject('lesson-6-vocab.json')) //clean all this up later
-// currentWord = Object.keys(test[14])[0] //clean all this up later
-// console.log(currentWord)
-// console.log(test[14][currentWord]) //clean all this up later
-// console.log(generateQuizQuestionsObject(generateVocabBankObject('lesson-6-vocab.json'))) //testing
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//core function of the quiz program
-// function nextWord(){
-//   while(currentIndex < testLength) {
-//     let currentWordEnglish = vocabBank[japaneseTranslationArray[currentIndex]]
-//     console.log(currentIndex+1,'. ',japaneseTranslationArray[currentIndex], ': \n');
-//     shuffle(englishTranslationArray);
-//     let incorrectAnswerPool = excludeCorrectAnswer(englishTranslationArray, currentWordEnglish);
-//     choices = [incorrectAnswerPool[0],incorrectAnswerPool[1],incorrectAnswerPool[2],currentWordEnglish];
-//     shuffle(choices);
-//     questionChoicesObject['a'] = choices[0].trim().toLowerCase();
-//     questionChoicesObject['b'] = choices[1].trim().toLowerCase();
-//     questionChoicesObject['c'] = choices[2].trim().toLowerCase();
-//     questionChoicesObject['d'] = choices[3].trim().toLowerCase();
-    
-//     for (let choice in questionChoicesObject) {
-//       question = questionChoicesObject[choice];
-//       console.log(`${choice}: ${question} \n`);
-//     };
-//   } 
-
-  //return quizQuestions
-// };
-  
-// nextWord();
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Export the functions
+// Export functions for use in other parts of the application
 module.exports = {
   generateLessonBankObject,
   generateVocabBankObject,
-  generateQuizQuestionsObject,currentIndex
-
+  generateQuizQuestionsObject,
+  currentIndex
 };
