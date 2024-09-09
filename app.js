@@ -96,8 +96,6 @@ app.post('/submit', async (req, res) => {
             result = 'false';
             incorrect++; // Increment incorrect answer count
             missedWordsList.push(`${currentWord} (${correctAnswer})`); // Add missed word to list
-            console.log(`${submittedAnswer} was submitted`);
-            console.log(`${correctAnswer} is correct`);
         }
 
         // Render the result page
