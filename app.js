@@ -59,7 +59,8 @@ app.post('/quiz/:lessonFile', async (req, res) => {
 // Route for displaying the current quiz question
 app.get('/quiz/question/', async (req, res) => {
     // Check if there are remaining questions
-    if (currentIndex < Object.keys(quizQuestionsObject).length) {
+    let numberOfQuestions = Object.keys(quizQuestionsObject).length;
+    if (currentIndex < numberOfQuestions) {
         questionNumber = currentIndex + 1;                 // Set the current question number
         currentQuizQuestion = quizQuestionsObject[questionNumber]; // Get the current question data
         currentWord = Object.keys(currentQuizQuestion)[0]; // Get the current Japanese word
@@ -70,7 +71,7 @@ app.get('/quiz/question/', async (req, res) => {
 
         try {
             // Render the question page with choices
-            res.render('displayWord', { jsonData: choices, word: currentWord, correctAnswer: correct });
+            res.render('displayWord', { jsonData: choices, word: currentWord, questionNumber: questionNumber, numberOfQuestions: numberOfQuestions, correctAnswer: correct });
         } catch (error) {
             console.error('Error rendering question:', error);
             res.status(500).send('Internal Server Error'); // Error handling
