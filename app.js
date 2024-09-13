@@ -67,8 +67,6 @@ app.get('/quiz/question/', async (req, res) => {
         choices = quizQuestionsObject[questionNumber][currentWord]; // Get the answer choices
         correctAnswer = vocabBankObject.vocabBank.translations[currentWord].trim().toLowerCase(); // Correct answer
 
-        console.log(`${correctAnswer} is the correctAnswer`); // Log correct answer for debugging
-
         try {
             // Render the question page with choices
             res.render('displayWord', { jsonData: choices, word: currentWord, questionNumber: questionNumber, numberOfQuestions: numberOfQuestions, correctAnswer: correct });

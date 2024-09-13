@@ -79,6 +79,7 @@ function generateQuizQuestionsObject(vocabBankObject) {
 
     // Prepare answer choices (3 incorrect + 1 correct)
     let incorrectAnswerPool = excludeCorrectAnswer(vocabBankObject.englishTranslationArray, currentWordEnglish);
+    incorrectAnswerPool = shuffle(incorrectAnswerPool);
     let choices = [incorrectAnswerPool[0], incorrectAnswerPool[1], incorrectAnswerPool[2], currentWordEnglish];
     shuffle(choices); // Shuffle the answer choices
     
