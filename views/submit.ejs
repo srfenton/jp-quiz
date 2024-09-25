@@ -22,9 +22,16 @@
 <body>
     <h1><%= result %></h1>
         <form action='/quiz/question/' method="GET">
-            <button type="submit" class="lesson-link">NEXT</button>
+            <button type="submit" class="lesson-link" id="button-0">NEXT</button>
         </form>
     </br>
     <a href="/">Go back to Home Page</a>
+
+    <script>
+        // Wait for 1 second and then click the first button (or any specific button)
+        setTimeout(function() {
+            document.getElementById('button-0').click(); // Change '0' to target a different button
+        }, 1000);
+    </script>
 </body>
 </html>

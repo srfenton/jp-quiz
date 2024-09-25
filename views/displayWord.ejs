@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Select a Lesson</title>
     <link rel="stylesheet" href="/styles.css">
-    <style>
+    <!-- I will delete the old style soon if i end up liking the new one-->
+    <!-- <style>
         ul {
             list-style-type: none; /* Remove bullet points */
             padding: 0;
@@ -13,9 +14,40 @@
         li {
             margin: 2px 0; /* Reduce space between items */
         }
-        .lesson-link {
+        .answer-choices {
             text-decoration: none; /* Remove underline */
             color: #000; /* Black text */
+            font-size: 20px;
+        }
+    </style> -->
+
+    <style>
+        h1, p {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0;
+            text-align: center;
+        }
+        li {
+            margin: 2px 0; /* Reduce space between items */
+            text-align: center;
+        }
+        .answer-choices {
+            text-decoration: none; /* Remove underline */
+            color: #000; /* Black text */
+            text-align: center;
+            font-size: 1.5em; /* Increase font size */
+            padding: 10px 20px; /* Add padding for better click area */
+            border: none; /* Remove default button border */
+            border-radius: 5px; /* Add rounded corners */
+            background-color: #f0f0f0; /* Light background color */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+        .answer-choices:hover {
+            background-color: #e0e0e0; /* Darker background on hover */
         }
     </style>
 </head>
@@ -25,7 +57,7 @@
         <% for (let key in jsonData) { %>
             <li>
                 <form action="/submit?answer=<%= jsonData[key] %>" method="POST">
-                    <button type="submit" class="lesson-link"><%= jsonData[key] %></button>
+                    <button type="submit" class="answer-choices"><%= jsonData[key] %></button>
                 </form>
             </li>
         <% } %>
