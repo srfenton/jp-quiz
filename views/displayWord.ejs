@@ -5,23 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Select a Lesson</title>
     <link rel="stylesheet" href="/styles.css">
-    <!-- I will delete the old style soon if i end up liking the new one-->
-    <!-- <style>
-        ul {
-            list-style-type: none; /* Remove bullet points */
-            padding: 0;
-        }
-        li {
-            margin: 2px 0; /* Reduce space between items */
-        }
-        .answer-choices {
-            text-decoration: none; /* Remove underline */
-            color: #000; /* Black text */
-            font-size: 20px;
-        }
-    </style> -->
-
-    <style>
+        <style>
+        
         h1, p {
             text-align: center;
         }
@@ -49,10 +34,14 @@
         .answer-choices:hover {
             background-color: #e0e0e0; /* Darker background on hover */
         }
+        .question {
+            font-size: 3em;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <h1><%= word %></h1>
+    <p class ="question"><%= word %></p>
     <ul>
         <% for (let key in jsonData) { %>
             <li>
