@@ -52,6 +52,27 @@ function generateVocabBankObject(lessonChoice) {
   }
 }
 
+
+//create a combination of all lessons
+function generateCombinedLessonsVocabBankObject(){
+  let combinedLessonsVocabBankObject = {};
+  let currentLesson;
+  const directoryPath = path.join(__dirname, 'vocab/json'); // Path to vocabulary directory
+
+  try {
+    // Read and store each file in the directory
+    const files = fs.readdirSync(directoryPath);
+    files.forEach(file => {
+      currentLesson = generateLessonBankObject(file)
+    });
+  } catch (err) {
+    console.error('Error reading directory:', err); // Error handling
+  }
+
+  return combinedLessonsVocabBankObject
+
+}
+
 // Utility function to shuffle an array using the Fisher-Yates algorithm
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
