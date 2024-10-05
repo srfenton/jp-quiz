@@ -30,22 +30,24 @@ function generateLessonBankObject() {
 };
 
 //this function should act as a shim to make more use of out of the generate vocabBankObject() function.
-function convertJSONToObject (lessonChoice) {
+function convertJSONToObject(lessonChoice) {
   try {
     // Read the selected lesson file
     const file = fs.readFileSync(`vocab/json/${lessonChoice}`, 'utf8');
-    const vocabBank = JSON.parse(file); // Parse JSON content
+
+    return JSON.parse(file); // Parse JSON content
 
 } catch (err) {
   console.error('Error reading or parsing vocab file:', err); // Error handling
   throw err;
 }
 
-  return vocabBank
+  
+
 }
 
 
-// Function to read a selected lesson file and extract Japanese/English translations for quiz
+// Function to read a selected lesson object and extract Japanese/English translations for quiz
 // function generateVocabBankObject(lessonChoice) {
 function generateVocabBankObject(vocabBank) {
   try {
@@ -83,7 +85,6 @@ function generateCombinedLessonsVocabBankObject(){
       //the below variable should be the current json as the loop iterates through all of them
       currentLesson = fs.readFileSync(`vocab/json/${file}`, 'utf8');
       currentLesson = JSON.parse(currentLesson);
-      console.log(currentLesson)
       //the below line combines the translations values with the currentLesson ones
       combinedLessonsVocabBankObject.translations = {...combinedLessonsVocabBankObject.translations,...currentLesson.translations};
       
@@ -95,7 +96,7 @@ function generateCombinedLessonsVocabBankObject(){
 
 }
 
-console.log(generateCombinedLessonsVocabBankObject())
+
 
 // Utility function to shuffle an array using the Fisher-Yates algorithm
 function shuffle(array) {
@@ -144,7 +145,16 @@ function generateQuizQuestionsObject(vocabBankObject) {
 // Export functions for use in other parts of the application
 module.exports = {
   generateLessonBankObject,
+  convertJSONToObject,
   generateVocabBankObject,
   generateQuizQuestionsObject,
+  generateCombinedLessonsVocabBankObject,
   currentIndex
 };
+
+
+//testing functions:
+// let lessonChoice = convertJSONToObject('lesson-1-vocab.json')
+// let vObject = generateVocabBankObject(lessonChoice)
+// console.log(vObject)
+console.log(generateCombinedLessonsVocabBankObject())
