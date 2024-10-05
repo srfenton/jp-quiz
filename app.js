@@ -1,5 +1,5 @@
 const express = require('express');
-const { generateLessonBankObject, generateVocabBankObject, generateQuizQuestionsObject } = require('./quiz-web');
+const { generateLessonBankObject, convertJSONToObject, generateVocabBankObject, generateQuizQuestionsObject, generateCombinedLessonsVocabBankObject } = require('./quiz-web');
 const path = require('path');
 const app = express();
 const port = 3000;
@@ -47,7 +47,13 @@ app.post('/quiz/:lessonFile', async (req, res) => {
     lessonChoice = req.params.lessonFile; // Capture the selected lesson file
     try {
         // Generate vocab data and quiz questions
-        vocabBankObject = await generateVocabBankObject(lessonChoice);
+        if(lessonChoice !== 'combined'){
+            lessonObject = convertJSONToObject(lessonChoice);
+            vocabBankObject = await generateVocabBankObject(lessonObject);
+        } else {
+            vocabBankObject = generateCombinedLessonsVocabBankObject();
+        }
+        
         quizQuestionsObject = await generateQuizQuestionsObject(vocabBankObject);
         res.redirect('/quiz/question/'); // Redirect to the first question
     } catch (error) {
