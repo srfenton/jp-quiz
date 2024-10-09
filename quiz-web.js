@@ -157,4 +157,4 @@ module.exports = {
 // let lessonChoice = convertJSONToObject('lesson-1-vocab.json')
 // let vObject = generateVocabBankObject(lessonChoice)
 // console.log(vObject)
-console.log(generateCombinedLessonsVocabBankObject())
+// console.log(generateCombinedLessonsVocabBankObject())
