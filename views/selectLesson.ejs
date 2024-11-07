@@ -6,16 +6,72 @@
     <title>Select a Lesson</title>
     <link rel="stylesheet" href="/styles.css">
     <style>
-        ul {
-            list-style-type: none; /* Remove bullet points */
+        /* General styling inspired by The Ritz-Carlton Tokyo aesthetic */
+        body {
+            font-family: "Playfair Display", serif; /* Example luxurious font family */
+            margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f7f2; /* Light cream background for elegance */
+            color: #1a1a1a; /* Dark color for text */
+            text-align: center;
         }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
         li {
-            margin: 2px 0; /* Reduce space between items */
+            margin: 10px 0;
         }
+
+        form {
+            display: inline-block;
+            margin: 10px;
+        }
+
         .lesson-link {
-            text-decoration: none; /* Remove underline */
-            color: #000; /* Black text */
+            background-color: transparent;
+            border: 2px solid #b2985b; /* Gold-ish border for luxury */
+            color: #1a1a1a; /* Dark text */
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease-in-out;
+            font-family: "Playfair Display", serif;
+        }
+
+        .lesson-link:hover {
+            background-color: #b2985b; /* Gold background on hover */
+            color: #fff; /* White text */
+        }
+
+        a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        a:hover {
+            color: #b2985b; /* Gold text on hover */
+        }
+
+        /* Styling for the 'combined' button */
+        form button.lesson-link {
+            font-size: 1rem;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -25,14 +81,16 @@
         <% for (let key in jsonData) { %>
             <li>
                 <form action="/quiz/<%= jsonData[key] %>" method="POST">
-                    <button type="submit" class="lesson-link"><%= jsonData[key] %></button>
+                    <button type="submit" class="lesson-link">
+                        <%= jsonData[key].replace('-vocab.json', '') %> <!-- Remove .json for display -->
+                    </button>
                 </form>
             </li>
         <% } %>
     </ul>
 
     <form action="/quiz/combined" method="POST">
-        <button type="submit" class="lesson-link">combined</button>
+        <button type="submit" class="lesson-link">Combined</button>
     </form>
     
     <a href="/">Go back to Home Page</a>
