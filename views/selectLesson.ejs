@@ -82,7 +82,7 @@
             <li>
                 <form action="/quiz/<%= jsonData[key] %>" method="POST">
                     <button type="submit" class="lesson-link">
-                        <%= jsonData[key].replace('-vocab.json', '') %> <!-- Remove .json for display -->
+                        <%= jsonData[key].replace('-vocab.json', '').replace('-',' ') %> <!-- Remove .json for display -->
                     </button>
                 </form>
             </li>
