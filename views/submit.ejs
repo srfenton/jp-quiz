@@ -28,17 +28,40 @@
             margin: 0 auto; /* Centers the button itself */
             padding: 10px 20px;
         }
+         /* Center the form buttons as footer links */
+        .footer-links-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .footer-button {
+            background: transparent;
+            border: none;
+            color: #0073e6;
+            font-size: 1.2em;
+            cursor: pointer;
+            text-decoration: none;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-button:hover {
+            color: #005bb5;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <h1><%= result %></h1>
-        <form action='/quiz/question/' method="GET">
-            <button type="submit" class="lesson-link" id="button-0">NEXT</button>
-        </form>
-    </br>
-    </br>
+    
+    <form action='/quiz/question/' method="GET">
+        <button type="submit" class="footer-button" id="button-0">NEXT</button>
+    </form>
+
     <form action='/reset' method="POST">
-        <button type="submit" class="lesson-link" >reset & go home</button>
+        <button type="submit" class="footer-button" >reset & go home</button>
     </form>
 
     

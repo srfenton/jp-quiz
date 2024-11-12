@@ -76,7 +76,6 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-
 // Route for selecting a lesson file
 app.get('/selectlesson', (req, res) => {
     const sessionId = req.session.session_id;

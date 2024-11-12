@@ -38,6 +38,28 @@
             font-size: 3em;
             text-align: center;
         }
+        .footer-links-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .footer-button {
+            background: transparent;
+            border: none;
+            color: #0073e6;
+            font-size: 1.2em;
+            cursor: pointer;
+            text-decoration: none;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-button:hover {
+            color: #005bb5;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -55,10 +77,17 @@
     
     </br>
     </br>
-    
-    <form action='/reset' method="POST">
-        <button type="submit" class="answer-choices" >reset & go home</button>
-    </form>
+
+    <div class="footer-links-container">
+        <form action="/selectlesson" method="get" style="display: inline;">
+            <input name="selected_lesson" type="hidden"/>
+            <button type="submit" class="footer-button">Lessons</button>
+        </form>
+        <form action="/reset" method="post" style="display: inline;">
+            <input name="selected_lesson" type="hidden"/>
+            <button type="submit" class="footer-button">Reset & Go Home</button>
+        </form>
+    </div>
     
     
 </body>
