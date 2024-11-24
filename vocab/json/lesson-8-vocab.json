@@ -3,7 +3,7 @@
     "translations": {
         "晴れ (はれ)": "sunny weather",
         "雨 (あめ)": "rain",
-        "曇り (くもり)": "cloudy",
+        "曇り (くもり)": "cloudy weather",
         "雪 (ゆき)": "snow",
         "天気予報 (てんきよほう)": "weather forecast",
         "気温 (きおん)": "temperature",
@@ -53,7 +53,7 @@
         "残念ですね (ざんねんですね)": "That's too bad.",
         "まだ + negative": "not yet",
         "〜について": "about...; concerning...",
-        "〜度 (〜ど)": "...degree (temperature)",
+        "〜度 (〜ど)": "...degrees (temperature)",
         "どう": "how"
     }
 }
