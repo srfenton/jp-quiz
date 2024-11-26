@@ -12,6 +12,9 @@
         h1 {
             text-align: center;
         }
+        p {
+            text-align: center;
+        }
         ul {
             list-style-type: none; /* Remove bullet points */
             padding: 0;
@@ -55,6 +58,8 @@
 </head>
 <body>
     <h1><%= result %></h1>
+
+    <p><%= correctAnswer %> is the correct answer</p>
     
     <form action='/quiz/question/' method="GET">
         <button type="submit" class="footer-button" id="button-0">NEXT</button>

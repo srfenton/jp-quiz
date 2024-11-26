@@ -157,7 +157,7 @@ app.post('/submit', async (req, res) => {
         }
 
         // Render the result page
-        res.render('submit', { questionNumber: sessionDataStore[sessionId]['questionNumber'], result: result });
+        res.render('submit', { questionNumber: sessionDataStore[sessionId]['questionNumber'], correctAnswer: sessionDataStore[sessionId]['correctAnswer'], result: result });
         sessionDataStore[sessionId]['currentIndex']++; // Move to the next question
     } catch (error) {
         console.error('Error processing submission:', error);
