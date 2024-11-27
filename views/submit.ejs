@@ -3,78 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select a Lesson</title>
+    <title>Submit Answer</title>
     <link rel="stylesheet" href="/styles.css">
     <style>
-        a {
-            text-align: center;
-        }
-        h1 {
-            text-align: center;
-        }
-        p {
-            text-align: center;
-        }
-        ul {
-            list-style-type: none; /* Remove bullet points */
+        /* General Body Styling */
+        body {
+            font-family: "Playfair Display", serif; /* Luxurious serif font */
+            margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f7f2; /* Light cream background */
+            color: #1a1a1a; /* Dark text */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Full viewport height */
         }
-        li {
-            margin: 2px 0; /* Reduce space between items */
+
+        /* Headings */
+        h1 {
+            font-size: 2.5rem; /* Large, clear text */
+            font-weight: 600;
+            margin: 10px 0;
+            color: #333;
         }
-        .lesson-link {
-            text-decoration: none; /* Remove underline */
-            color: #000; /* Black text */
+
+        /* Paragraphs */
+        p {
+            font-size: 1.5rem; /* Larger for readability */
+            margin: 10px 0;
+            color: #555; /* Slightly muted color */
         }
-        button {
-            display: block;
-            margin: 0 auto; /* Centers the button itself */
-            padding: 10px 20px;
-        }
-         /* Center the form buttons as footer links */
-        .footer-links-container {
+
+        /* Footer Buttons */
+        .footer-buttons {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
+            gap: 20px; /* Spacing between buttons */
+            position: fixed;
+            bottom: 20px; /* Align at the bottom */
+            left: 0;
+            right: 0;
         }
 
         .footer-button {
-            background: transparent;
-            border: none;
-            color: #0073e6;
-            font-size: 1.2em;
+            background-color: transparent;
+            border: 2px solid #b2985b; /* Gold border */
+            color: #1a1a1a; /* Dark text */
+            padding: 10px 20px;
+            font-size: 1rem;
             cursor: pointer;
+            border-radius: 4px; /* Rounded corners */
             text-decoration: none;
-            padding: 10px;
-            transition: color 0.3s;
+            transition: all 0.3s ease-in-out;
+            font-family: "Playfair Display", serif; /* Consistent font */
         }
 
         .footer-button:hover {
-            color: #005bb5;
-            text-decoration: underline;
+            background-color: #b2985b; /* Gold background on hover */
+            color: #fff; /* White text */
+        }
+
+        /* Links */
+        a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        a:hover {
+            color: #b2985b; /* Gold text on hover */
         }
     </style>
 </head>
 <body>
-    <h1><%= result %></h1>
-
-    <p><%= correctAnswer %> is the correct answer</p>
+    <div>
+        <h1><%= result %></h1>
+        <p><%= correctAnswer %> is the correct answer</p>
+    </div>
     
-    <form action='/quiz/question/' method="GET">
-        <button type="submit" class="footer-button" id="button-0">NEXT</button>
-    </form>
+    <div class="footer-buttons">
+        <form action='/quiz/question/' method="GET">
+            <button type="submit" class="footer-button" id="button-0">NEXT</button>
+        </form>
 
-    <form action='/reset' method="POST">
-        <button type="submit" class="footer-button" >reset & go home</button>
-    </form>
-
-    
+        <form action='/reset' method="POST">
+            <button type="submit" class="footer-button">reset & go home</button>
+        </form>
+    </div>
 
     <script>
-        // Wait for 1 second and then click the first button (or any specific button)
+        // Automatically click the NEXT button after 1 second
         setTimeout(function() {
-            document.getElementById('button-0').click(); // Change '0' to target a different button
+            document.getElementById('button-0').click(); 
         }, 500);
     </script>
 </body>
