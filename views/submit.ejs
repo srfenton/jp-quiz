@@ -16,12 +16,15 @@
             color: #1a1a1a; /* Dark text */
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
             height: 100vh; /* Full viewport height */
         }
 
-        /* Headings */
+        /* Top Section */
+        .top-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
         h1 {
             font-size: 2.5rem; /* Large, clear text */
             font-weight: 600;
@@ -29,7 +32,16 @@
             color: #333;
         }
 
-        /* Paragraphs */
+        /* Centered Answer Section */
+        .center-section {
+            flex-grow: 1; /* Takes up remaining space */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(-30%);
+        }
+
         p {
             font-size: 1.5rem; /* Larger for readability */
             margin: 10px 0;
@@ -41,10 +53,7 @@
             display: flex;
             justify-content: center;
             gap: 20px; /* Spacing between buttons */
-            position: fixed;
-            bottom: 20px; /* Align at the bottom */
-            left: 0;
-            right: 0;
+            margin-bottom: 20px;
         }
 
         .footer-button {
@@ -64,27 +73,20 @@
             background-color: #b2985b; /* Gold background on hover */
             color: #fff; /* White text */
         }
-
-        /* Links */
-        a {
-            text-decoration: none;
-            color: #1a1a1a;
-            font-weight: 500;
-            margin-top: 20px;
-            display: inline-block;
-        }
-
-        a:hover {
-            color: #b2985b; /* Gold text on hover */
-        }
     </style>
 </head>
 <body>
-    <div>
+    <!-- Question Section -->
+    <div class="top-section">
         <h1><%= result %></h1>
-        <p><%= correctAnswer %> is the correct answer</p>
     </div>
     
+    <!-- Correct Answer Section -->
+    <div class="center-section">
+        <p><%= correctAnswer %> is the correct answer</p>
+    </div>
+
+    <!-- Footer Buttons -->
     <div class="footer-buttons">
         <form action='/quiz/question/' method="GET">
             <button type="submit" class="footer-button" id="button-0">NEXT</button>
