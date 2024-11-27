@@ -5,39 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Select a Lesson</title>
     <link rel="stylesheet" href="/styles.css">
-        <style>
+    <style>
         
-        h1, p {
-            text-align: center;
-        }
-        ul {
-            list-style-type: none; /* Remove bullet points */
+        /* General Body Styling */
+        body {
+            font-family: "Playfair Display", serif; /* Luxurious serif font */
+            margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f7f2; /* Light cream background */
+            color: #1a1a1a; /* Dark text for readability */
             text-align: center;
         }
+
+        /* Headings */
+        h1, p.question {
+            font-size: 2.5rem; /* Large, clear text */
+            font-family: "Arial", sans-serif; /* Clean, clear sans-serif font */
+            font-weight: 600;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        /* Lists */
+        ul {
+            list-style-type: none; /* No bullet points */
+            padding: 0;
+            margin: 20px 0;
+        }
+
         li {
-            margin: 2px 0; /* Reduce space between items */
-            text-align: center;
+            margin: 10px 0; /* Uniform spacing between list items */
         }
+
+        /* Buttons */
+        button {
+            background-color: transparent;
+            border: 2px solid #b2985b; /* Gold border */
+            color: #1a1a1a; /* Dark text */
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px; /* Rounded corners */
+            transition: all 0.3s ease-in-out;
+            font-family: "Playfair Display", serif; /* Consistent font family */
+        }
+
+        button:hover {
+            background-color: #b2985b; /* Gold background on hover */
+            color: #fff; /* White text */
+        }
+
+        /* Answer Choices */
         .answer-choices {
-            text-decoration: none; /* Remove underline */
+            font-size: 1.5rem; /* Larger for prominence */
+            padding: 10px 20px; /* Clickable area */
+            margin: 5px; /* Spacing between buttons */
+            border: none; /* Simplified style */
+            background-color: #f0f0f0; /* Light background */
             color: #000; /* Black text */
-            text-align: center;
-            font-size: 1.5em; /* Increase font size */
-            padding: 10px 20px; /* Add padding for better click area */
-            border: none; /* Remove default button border */
-            border-radius: 5px; /* Add rounded corners */
-            background-color: #f0f0f0; /* Light background color */
-            cursor: pointer; /* Change cursor to pointer on hover */
-            transition: background-color 0.3s; /* Smooth transition for hover effect */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
+
         .answer-choices:hover {
-            background-color: #e0e0e0; /* Darker background on hover */
+            background-color: #e0e0e0; /* Slightly darker hover effect */
         }
-        .question {
-            font-size: 3em;
-            text-align: center;
-        }
+
+        /* Footer Buttons */
         .footer-links-container {
             display: flex;
             justify-content: center;
@@ -48,8 +84,8 @@
         .footer-button {
             background: transparent;
             border: none;
-            color: #0073e6;
-            font-size: 1.2em;
+            color: #0073e6; /* Blue for links */
+            font-size: 1.2rem;
             cursor: pointer;
             text-decoration: none;
             padding: 10px;
@@ -57,9 +93,23 @@
         }
 
         .footer-button:hover {
-            color: #005bb5;
+            color: #005bb5; /* Darker blue on hover */
             text-decoration: underline;
         }
+
+        /* Links */
+        a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        a:hover {
+            color: #b2985b; /* Gold text on hover */
+        }
+
     </style>
 </head>
 <body>
