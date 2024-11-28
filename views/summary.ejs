@@ -3,33 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select a Lesson</title>
+    <title>Quiz Summary</title>
     <link rel="stylesheet" href="/styles.css">
     <style>
-        ul {
-            list-style-type: upper-roman; /* Remove bullet points */
+        body {
+            font-family: "Playfair Display", serif;
+            margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f7f2;
+            color: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
+
+        .summary-container {
+            width: 50%;
+            max-width: 600px; /* Limit width for consistent alignment */
+            text-align: left; /* Align content inside to the left */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the container itself */
+            justify-content: center; /* Ensure items are centered vertically */
+            padding: 20px; /* Add padding for a cleaner layout */
+            /*margin: auto; */
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        h4, p {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 10px 0;
+            color: #555;
+            width: 100%; /* Ensure they span the container */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            width: 100%; /* Match the width of the container */
+        }
+
         li {
-            margin: 2px 0; /* Reduce space between items */
+            font-size: 1.2rem;
+            margin: 5px 0;
+            display: flex;
+            gap: 10px;
+            align-items: baseline; /* Align numeral with text */
         }
-        .lesson-link {
-            text-decoration: none; /* Remove underline */
-            color: #000; /* Black text */
+
+        .roman {
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Footer Buttons */
+        .footer-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: fixed;
+            bottom: 20px; /* Fix at the bottom of the page */
+            left: 0;
+            right: 0;
+        }
+
+        .footer-button {
+            background-color: transparent;
+            border: 2px solid #b2985b;
+            color: #1a1a1a;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            font-family: "Playfair Display", serif;
+        }
+
+        .footer-button:hover {
+            background-color: #b2985b;
+            color: #fff;
         }
     </style>
 </head>
 <body>
-    <h1><%= ((correct / (correct + incorrect)) * 100).toFixed(2) %>%</h1>
-    </br>
-    <h2>correct: <%= correct %></h2>
-    <h2>incorrect: <%= incorrect %></h2>
+    <div class="summary-container">
+        <h1><%= ((correct / (correct + incorrect)) * 100).toFixed(2) %>%</h1>
+        <h4>Correct: <%= correct %></h4>
+        <h4>Incorrect: <%= incorrect %></h4>
 
-<p>missed words:</p>
-    <% for (let x in missedWordsList) { %>
-        <li><%= missedWordsList[x] %></li>
-    <% } %>
+        <p>Missed Words:</p>
+        <ul>
+            <% for (let x in missedWordsList) { %>
+                <li>
+                    <span class="roman"><%= parseInt(x) + 1 %>.</span> 
+                    <span><%= missedWordsList[x] %></span>
+                </li>
+            <% } %>
+        </ul>
+    </div>
 
-    <a href="/">Go back to Home Page</a>
+    <div class="footer-buttons">
+        <form action='/quiz/question/' method="GET">
+            <button type="submit" class="footer-button" id="button-0">NEXT</button>
+        </form>
+
+        <form action='/reset' method="POST">
+            <button type="submit" class="footer-button">Reset & Go Home</button>
+        </form>
+    </div>
 </body>
 </html>
