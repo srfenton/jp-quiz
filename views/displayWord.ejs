@@ -10,25 +10,33 @@
         text-align: center;
         display: flex;
         flex-direction: column;
-        min-height: 100vh; /* Ensure the body spans the full viewport height */
+        min-height: 100vh;
     }
 
     /* Content Wrapper */
     main {
-        flex: 1; /* Allows the main content to push the footer down if needed */
+        flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 10px; /* Added padding for better spacing on smaller screens */
     }
 
-    /* Headings */
+    /* Headings and Question Text */
     h1, p.question {
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-family: "Arial", sans-serif;
         font-weight: 600;
         margin: 20px 0;
         color: #333;
+    }
+
+    /* Adjust font size for smaller screens */
+    @media (max-width: 768px) {
+        h1, p.question {
+            font-size: 1.5rem; /* Slightly smaller for mobile */
+        }
     }
 
     /* Lists */
@@ -62,8 +70,8 @@
 
     /* Answer Choices */
     .answer-choices {
-        font-size: 1.5rem;
-        padding: 10px 20px;
+        font-size: 1.2rem; /* Slightly smaller */
+        padding: 10px 15px;
         margin: 5px;
         border: none;
         background-color: #f0f0f0;
@@ -75,6 +83,13 @@
 
     .answer-choices:hover {
         background-color: #e0e0e0;
+    }
+
+    @media (max-width: 768px) {
+        .answer-choices {
+            font-size: 1rem; /* Smaller for better fit on mobile */
+            padding: 8px 12px; /* Reduced padding for smaller screens */
+        }
     }
 
     /* Footer Buttons */
@@ -99,6 +114,13 @@
     .footer-button:hover {
         color: #005bb5;
         text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .footer-button {
+            font-size: 1rem; /* Adjust footer buttons for mobile */
+            padding: 8px;
+        }
     }
 
     /* Links */
