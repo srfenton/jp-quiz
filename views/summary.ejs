@@ -1,89 +1,127 @@
-<style>
-    body {
-        font-family: "Playfair Display", serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        background-color: #f9f7f2;
-        color: #1a1a1a;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh; /* Ensure the body takes up the full viewport height */
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Summary</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body {
+            font-family: "Playfair Display", serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f7f2;
+            color: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
 
-    .summary-container {
-        width: 50%;
-        max-width: 600px;
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-bottom: 40px;
-        flex: 1; /* Allow this section to grow and push the footer down */
-    }
+        .summary-container {
+            width: 50%;
+            max-width: 600px; /* Limit width for consistent alignment */
+            text-align: left; /* Align content inside to the left */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the container itself */
+            justify-content: center; /* Ensure items are centered vertically */
+            padding: 20px; /* Add padding for a cleaner layout */
+            /*margin: auto; */
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 60px;
+        }
 
-    h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 10px;
-        color: #333;
-    }
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #333;
+        }
 
-    h4, p {
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin: 10px 0;
-        color: #555;
-        width: 100%;
-    }
+        h4, p {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 10px 0;
+            color: #555;
+            width: 100%; /* Ensure they span the container */
+        }
 
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 10px 0;
-        width: 100%;
-    }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            width: 100%; /* Match the width of the container */
+        }
 
-    li {
-        font-size: 1.2rem;
-        margin: 5px 0;
-        display: flex;
-        gap: 10px;
-        align-items: baseline;
-    }
+        li {
+            font-size: 1.2rem;
+            margin: 5px 0;
+            display: flex;
+            gap: 10px;
+            align-items: baseline; /* Align numeral with text */
+        }
 
-    .roman {
-        font-weight: bold;
-        color: #555;
-    }
+        .roman {
+            font-weight: bold;
+            color: #555;
+        }
 
-    /* Footer Buttons */
-    .footer-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        padding: 10px 0;
-    }
+        /* Footer Buttons */
+        .footer-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: fixed;
+            bottom: 20px; /* Fix at the bottom of the page */
+            left: 0;
+            right: 0;
+        }
 
-    .footer-button {
-        background-color: transparent;
-        border: 2px solid #b2985b;
-        color: #1a1a1a;
-        padding: 10px 20px;
-        font-size: 1rem;
-        cursor: pointer;
-        border-radius: 4px;
-        text-decoration: none;
-        transition: all 0.3s ease-in-out;
-        font-family: "Playfair Display", serif;
-    }
+        .footer-button {
+            background-color: transparent;
+            border: 2px solid #b2985b;
+            color: #1a1a1a;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            font-family: "Playfair Display", serif;
+        }
 
-    .footer-button:hover {
-        background-color: #b2985b;
-        color: #fff;
-    }
-</style>
+        .footer-button:hover {
+            background-color: #b2985b;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="summary-container">
+        <h1><%= ((correct / (correct + incorrect)) * 100).toFixed(2) %>%</h1>
+        <h4>Correct: <%= correct %></h4>
+        <h4>Incorrect: <%= incorrect %></h4>
+
+        <p>Missed Words:</p>
+        <ul>
+            <% for (let x in missedWordsList) { %>
+                <li>
+                    <span class="roman"><%= parseInt(x) + 1 %>.</span> 
+                    <span><%= missedWordsList[x] %></span>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+
+    <div class="footer-buttons">
+        <form action='/reset' method="POST">
+            <button type="submit" class="footer-button">Reset & Go Home</button>
+        </form>
+    </div>
+</body>
+</html>
