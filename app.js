@@ -79,6 +79,11 @@ app.get('/', (req, res) => {
 // Route for selecting a lesson file
 app.get('/selectlesson', (req, res) => {
     const sessionId = req.session.session_id;
+    if (!sessionId || !sessionDataStore[sessionId]) {
+        
+        return res.redirect('/');
+    }
+
     sessionDataStore[sessionId]['lessonBank'] = generateLessonBankObject(); // Generate list of available lessons
     res.render('selectLesson', { jsonData: sessionDataStore[sessionId]['lessonBank'] }); // Render lesson selection page
 });
