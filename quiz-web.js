@@ -1,13 +1,12 @@
 var fs = require('fs'); 
+const assert = require('assert');
 const path = require('path');
 const { userInfo } = require('os');
+const { MongoClient } = require('mongodb');
+const url = "mongodb://localhost:27017/jpquiz";
+const dbName = "jpquiz";
 
-// Global variables for quiz tracking
-let testLength = 5;      // Number of quiz questions
-let currentIndex = 0;    // Tracks current quiz question index
-let correct = 0;         // Correct answer counter
-let incorrect = 0;       // Incorrect answer counter
-let missedWordsList = []; // List to store missed words
+
 
 // Function to read files from the vocabulary directory and return an object mapping lessons by number
 function generateLessonBankObject() {
@@ -25,9 +24,38 @@ function generateLessonBankObject() {
   } catch (err) {
     console.error('Error reading directory:', err); // Error handling
   }
-
   return lessonBank;
 };
+
+async function generateLessonBankObjectDb() {
+  let client;
+  let lessonCount = 1;  // Tracks the lesson number
+  let lessonBank = {};
+  try {
+    client = new MongoClient(url);
+    await client.connect();
+    console.log("Connected to MongoDB to generate lesson bank");
+
+    const db = client.db(dbName);
+    const distinctTitles = await db.collection("vocab").distinct("englishTitle");
+    distinctTitles.forEach(lesson => {
+      lessonBank[lessonCount] = lesson;
+      lessonCount++;
+    });
+    // console.log(lessonBank);
+  
+    return lessonBank;
+
+  } catch (err) {
+    console.error('Error fetching distinct titles:', err);
+    throw err;
+  } finally {
+    if (client) {
+      await client.close();
+    }
+  }
+}
+
 
 //this function should act as a shim to make more use of out of the generate vocabBankObject() function.
 function convertJSONToObject(lessonChoice) {
@@ -37,23 +65,47 @@ function convertJSONToObject(lessonChoice) {
 
     return JSON.parse(file); // Parse JSON content
 
-} catch (err) {
+  } catch (err) {
   console.error('Error reading or parsing vocab file:', err); // Error handling
   throw err;
+  } 
 }
 
-  
+async function convertCollectionToObject(lessonChoice) {
+  let client;
 
+  try {
+    // Initialize the MongoClient and connect to the database
+    client = new MongoClient(url);
+    await client.connect();
+    console.log("Connected to MongoDB");
+
+    const db = client.db(dbName);
+    const result = await db.collection("vocab").findOne({ englishTitle: lessonChoice });
+
+    if (result) {
+      console.log(`result found: ${result.title}`)
+      return result;  // Return the result as an object
+    } else {
+      console.log("No document found for the lesson choice");
+      return null;  // Return null if no document is found
+    }
+
+  } catch (err) {
+    console.error('Error reading or parsing vocab file:', err); // Error handling
+    throw err;
+  } finally {
+    // Ensure that the MongoDB connection is closed
+    if (client) {
+      await client.close();
+    }
+  }
 }
 
 
 // Function to read a selected lesson object and extract Japanese/English translations for quiz
-// function generateVocabBankObject(lessonChoice) {
 function generateVocabBankObject(vocabBank) {
   try {
-    // Read the selected lesson file
-        // const file = fs.readFileSync(`vocab/json/${lessonChoice}`, 'utf8');
-    // const vocabBank = JSON.parse(file); // Parse JSON content
 
     // Create arrays for Japanese and corresponding English translations
     let japaneseTranslationArray = Object.keys(vocabBank['translations']);
@@ -95,6 +147,49 @@ function generateCombinedLessonsVocabBankObject(){
   return generateVocabBankObject(combinedLessonsVocabBankObject)
 
 }
+
+
+async function generateCombinedLessonsVocabBankObjectDb() {
+  let combinedLessonsVocabBankObject = { "title": "combined", "translations": {} };
+  let currentLesson;
+  const client = new MongoClient(url);
+
+  try {
+    // Connect to MongoDB
+    const client = new MongoClient(url);
+    await client.connect();
+    console.log("Connected to MongoDB to generate lesson bank");
+
+    const db = client.db(dbName);
+    const distinctTitles = await db.collection("vocab").distinct("englishTitle");
+
+    // Use for...of loop for async operations
+    for (let lesson of distinctTitles) {
+      currentLesson = await convertCollectionToObject(lesson);
+      combinedLessonsVocabBankObject.translations = {
+        ...combinedLessonsVocabBankObject.translations,
+        ...currentLesson.translations
+      };
+    }
+
+    // Call the next function
+    const result = await generateVocabBankObject(combinedLessonsVocabBankObject);
+
+    // Return the result
+    return result;
+
+  } catch (err) {
+    console.error('Database connection error:', err); // Error handling
+    throw err; // Optionally re-throw the error to handle it in the calling function
+  } finally {
+    // Ensure MongoDB client is closed even if an error occurs
+    if (client) {
+      await client.close();
+      console.log("MongoDB client closed");
+    }
+  }
+}
+
 
 
 
@@ -142,14 +237,21 @@ function generateQuizQuestionsObject(vocabBankObject) {
   return quizQuestionsObject;
 }
 
+
+
+
+
+
 // Export functions for use in other parts of the application
 module.exports = {
   generateLessonBankObject,
+  generateLessonBankObjectDb,
   convertJSONToObject,
+  convertCollectionToObject,
   generateVocabBankObject,
   generateQuizQuestionsObject,
   generateCombinedLessonsVocabBankObject,
-  currentIndex
+  generateCombinedLessonsVocabBankObjectDb
 };
 
 
@@ -158,3 +260,38 @@ module.exports = {
 // let vObject = generateVocabBankObject(lessonChoice)
 // console.log(vObject)
 // console.log(generateCombinedLessonsVocabBankObject())
+
+//2-8 testing
+// let lessonChoice = convertCollectionToObject('lesson-1-vocab.json')
+//// console.log('1: \n');
+// let testLessonBank1 = generateLessonBankObject();
+// console.log('2: \n');
+//let testLessonBank2 = generateLessonBankObjectDb();
+
+
+// async function checkLessonBanks() {
+//   let testLessonBank2 = await generateLessonBankObjectDb();  // Await the Promise
+  
+//   // Compare the two lesson banks after awaiting the Promise
+//   assert.deepStrictEqual(testLessonBank1, testLessonBank2, 'The lesson banks are not deeply equal!');
+  
+//   console.log('Lesson banks are deeply equal!');
+// }
+
+// // Call the async function
+// checkLessonBanks().catch(err => console.error(err));
+
+
+//testing the combined vocab object updates 
+// async function checkCombinedVocabObjects() {
+//   let inMemory = generateCombinedLessonsVocabBankObject();
+//   let db = await generateCombinedLessonsVocabBankObjectDb();  // Await the Promise
+  
+//   // Compare the two lesson banks after awaiting the Promise
+//   assert.deepStrictEqual(inMemory, db, 'The objects are not deeply equal!');
+  
+//   console.log('the objects are deeply equal!');
+// }
+
+// // Call the async function
+// checkCombinedVocabObjects().catch(err => console.error(err));
