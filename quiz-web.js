@@ -9,10 +9,16 @@ const dbName = "jpquiz";
 
 
 // Function to read files from the vocabulary directory and return an object mapping lessons by number
-function generateLessonBankObject() {
+function generateLessonBankObject(selectedOption) {
   let lessonCount = 1;  // Tracks the lesson number
   let lessonBank = {};  // Stores lesson files mapped to lesson numbers
-  const directoryPath = path.join(__dirname, 'vocab/json'); // Path to vocabulary directory
+  let scanDirectory;
+  if(selectedOption === 'quiz'){
+    scanDirectory = 'vocab/json';
+  } else{
+    scanDirectory = 'readings';
+  }
+  const directoryPath = path.join(__dirname, scanDirectory); // Path to vocabulary directory
   
   try {
     // Read and store each file in the directory
@@ -27,7 +33,7 @@ function generateLessonBankObject() {
   return lessonBank;
 };
 
-async function generateLessonBankObjectDb() {
+async function generateLessonBankObjectDb(selectedOption) {
   let client;
   let lessonCount = 1;  // Tracks the lesson number
   let lessonBank = {};
@@ -37,7 +43,12 @@ async function generateLessonBankObjectDb() {
     console.log("Connected to MongoDB to generate lesson bank");
 
     const db = client.db(dbName);
-    const distinctTitles = await db.collection("vocab").distinct("englishTitle");
+    let distinctTitles;
+    if(selectedOption ==='readings'){
+      distinctTitles = await db.collection("readings").distinct("lesson_title");
+    } else{ 
+      distinctTitles = await db.collection("vocab").distinct("englishTitle");
+    }
     distinctTitles.forEach(lesson => {
       lessonBank[lessonCount] = lesson;
       lessonCount++;

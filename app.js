@@ -133,11 +133,14 @@ app.get('/', async (req, res) => {
 
 // Route for selecting a lesson file
 app.get('/selectlesson', async (req, res) => {
+    console.log(req.query.selection);
     const sessionId = req.session.session_id;
+    let selectedOption = req.query.selection;
+    
     getSession(req, res, dbo);
 
     // sessionDataStore[sessionId]['lessonBank'] = generateLessonBankObject(); // Generate list of available lessons
-    const lessonBank = await generateLessonBankObjectDb();
+    const lessonBank = await generateLessonBankObjectDb(selectedOption);
 
     // Update MongoDB with the new lessonBank
     await dbo.collection("sessions").updateOne(

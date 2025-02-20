@@ -1,0 +1,55 @@
+{
+    "lesson_1": {
+      "title": "Lesson 1: New Friends",
+      "readings": [
+        {
+          "reading_number": 1,
+          "caption" : "Mary, an international student who just arrived in Japan, meets a Japanese student Takeshi at a school orientation.",
+          "japanese": [
+            "たけし: こんにちは。木村たけしです。",
+            "メアリー: メアリー・ハートです。あの、留学生ですか。",
+            "たけし: いいえ、日本人です。",
+            "メアリー: そうですか。何年生ですか。",
+            "たけし: 四年生です。"
+          ],
+          "kana": [
+            "たけし: こんにちは。きむら たけしです。",
+            "メアリー: メアリー・ハートです。あの、りゅうがくせいですか。",
+            "たけし: いいえ、にほんじんです。",
+            "メアリー: そうですか。なんねんせいですか。",
+            "たけし: よんねんせいです。"
+          ],
+          "english": [
+            "Takeshi: Hello. I am Takeshi Kimura.",
+            "Mary: I am Mary Hart. Um...are you an international student?",
+            "Takeshi: No, I am Japanese.",
+            "Mary: I see. What year are you in college?",
+            "Takeshi: I am a fourth-year student."
+          ]
+        },
+        {
+          "reading_number": 2,
+          "caption" : "At the Orientation, Mary introduces herself to everyone.",
+          "japanese": [
+            "メアリー: はじめまして。メアリー・ハートです。",
+            "アリゾナ大学の学生です。二年生です。",
+            "専攻は日本語です。十九歳です。",
+            "よろしくお願いします。"
+          ],
+          "kana": [
+            "メアリー: はじめまして。メアリー・ハートです。",
+            "ありぞなだいがくのがくせいです。にねんせいです。",
+            "せんこうはにほんごです。じゅうきゅうさいです。",
+            "よろしくおねがいします。"
+          ],
+          "english": [
+            "Mary: How do you do? I am Mary Hart.",
+            "I am a student at the University of Arizona. I am a second-year student.",
+            "My major is Japanese. I am 19 years old.",
+            "Nice to meet you."
+          ]
+        }
+      ]
+    }
+  }
+  

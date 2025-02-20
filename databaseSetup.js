@@ -57,7 +57,7 @@ async function importVocabFiles() {
       const vocabCollection = db.collection("vocab");
 
       // Scan directory for JSON files
-      const files = fs.readdirSync(vocabDir).filter(file => file.endsWith('.json'));
+      const files = fs.readdirSync('vocabDir').filter(file => file.endsWith('.json'));
 
       for (const file of files) {
           const filePath = path.join(vocabDir, file);
@@ -83,9 +83,67 @@ async function importVocabFiles() {
     }
 }
 
+
+async function importReadingsFiles() {
+  const client = new MongoClient(url);
+
+  try {
+    await client.connect();
+    console.log("Connected to MongoDB");
+
+    const db = client.db(dbName);
+    const readingCollection = db.collection("readings");
+    const readingsDir = 'readings'
+    const files = fs.readdirSync(readingsDir).filter(file => file.endsWith('.json'));
+
+    for (const file of files) {
+      const filePath = path.join(readingsDir, file);
+      const fileData = fs.readFileSync(filePath, 'utf8');
+      const readingsData = JSON.parse(fileData);
+
+      // Iterate through the lesson data
+      for (const lessonKey in readingsData) {
+        const lesson = readingsData[lessonKey];
+        const lessonNumber = parseInt(lessonKey.replace("lesson_", "")); // Extract lesson number
+
+        // Iterate through the readings within each lesson
+        for (const reading of lesson.readings) {
+          await readingCollection.updateOne(
+            { // Query to find if the reading already exists (important for upsert)
+              lesson_number: lessonNumber,
+              reading_number: reading.reading_number
+            },
+            { // Data to insert or update
+              $set: { // Use $set to avoid overwriting other fields
+                lesson_number: lessonNumber,
+                lesson_title: lesson.title,
+                reading_number: reading.reading_number,
+                caption: reading.caption || "",
+                japanese: reading.japanese,
+                english: reading.english,
+                kana: reading.kana
+              }
+            },
+            { upsert: true } // Important: Use upsert to create new documents if they don't exist
+          );
+        }
+      }
+      console.log(`Imported: ${file}`);
+    }
+
+    console.log("Reading import complete.");
+  } catch (err) {
+    console.error("Error importing readings files:", err);
+  } finally {
+    await client.close();
+  }
+}
+
+
 async function run() {
   await manageCollection(); // Drop and create collections
   await importVocabFiles(); // Import vocab files
+  await importReadingsFiles(); //Import readings files
   console.log('done...')
 }
 

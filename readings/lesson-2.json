@@ -1,0 +1,83 @@
+{
+  "lesson_2": {
+    "title": "Lesson 2: Shopping",
+    "readings": [
+      {
+        "reading_number": 1,
+        "caption" : "Mary goes to a flea market.",
+        "japanese": [
+          "メアリー: すみません。これはいくらですか。",
+          "みせのひと: それはさんぜんえんです。",
+          "メアリー: たかいですね。じゃあ、あのとけいはいくらですか。",
+          "みせのひと: あれはさんぜんごひゃくえんです。",
+          "メアリー: そうですか。あれもたかいですね。",
+          "みせのひと: これはせんはっぴゃくえんですよ。",
+          "メアリー: じゃあ、そのとけいをください。",
+          "A man finds a wallet on the ground.",
+          "しらないひと: これはだれのさいふですか。",
+          "メアリー: わたしのさいふです。ありがとうございます。"
+        ],
+        "kana": [
+          "メアリー: すみません。これはいくらですか。",
+          "みせのひと: それはさんぜんえんです。",
+          "メアリー: たかいですね。じゃあ、あのとけいはいくらですか。",
+          "みせのひと: あれはさんぜんごひゃくえんです。",
+          "メアリー: そうですか。あれもたかいですね。",
+          "みせのひと: これはせんはっぴゃくえんですよ。",
+          "メアリー: じゃあ、そのとけいをください。",
+          "しらないひと: これはだれのさいふですか。",
+          "メアリー: わたしのさいふです。ありがとうございます。"
+        ],
+        "english": [
+          "Mary: Excuse me. How much is this?",
+          "Vendor: It is 3,000 yen.",
+          "Mary: It's expensive. Well then, how much is that watch?",
+          "Vendor: That is 3,500 yen.",
+          "Mary: Is that so? That's expensive too.",
+          "Shopkeeper: This one is 1,800 yen.",
+          "Mary: Then, I'll take that watch.",
+          "A man finds a wallet on the ground.",
+          "Stranger: Whose wallet is this?",
+          "Mary: It's my wallet. Thank you very much."
+        ]
+      },
+      {
+        "reading_number": 2,
+        "caption" : "After shopping, Mary goes to a restaurant.",
+        "japanese": [
+          "みせのひと: いらっしゃいませ。メニューをどうぞ。",
+          "メアリー: どうも。これはなんですか。",
+          "みせのひと: どれですか。ああ、とんかつです。",
+          "メアリー: とんかつ? さかなですか。",
+          "みせのひと: いいえ、さかなじゃないです。にくです。おいしいですよ。",
+          "メアリー: じゃあ、これをおねがいします。",
+          "メアリー: すみません。トイレはどこですか。",
+          "みせのひと: あそこです。",
+          "メアリー: ありがとうございます。"
+        ],
+        "kana": [
+          "みせのひと: いらっしゃいませ。メニューをどうぞ。",
+          "メアリー: どうも。これはなんですか。",
+          "みせのひと: どれですか。ああ、とんかつです。",
+          "メアリー: とんかつ? さかなですか。",
+          "みせのひと: いいえ、さかなじゃないです。にくです。おいしいですよ。",
+          "メアリー: じゃあ、これをおねがいします。",
+          "メアリー: すみません。トイレはどこですか。",
+          "みせのひと: あそこです。",
+          "メアリー: ありがとうございます。"
+        ],
+        "english": [
+          "Restaurant attendant: Welcome. Here's the menu.",
+          "Mary: Thank you. What is this?",
+          "Restaurant attendant: Which one? Oh, it is tonkatsu (pork cutlet).",
+          "Mary: Tonkatsu? Is it fish?",
+          "Restaurant attendant: No, it is not fish. It is meat. It is delicious.",
+          "Mary: Then, I'll have this.",
+          "Mary: Excuse me. Where is the restroom?",
+          "Restaurant attendant: It is over there.",
+          "Mary: Thank you very much."
+        ]
+      }
+    ]
+  }
+}

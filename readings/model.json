@@ -1,0 +1,35 @@
+{
+    "lesson_x": {
+      "title": "Lesson : ",
+      "readings": [
+        {
+          "reading_number": 1,
+          "caption" : "",
+
+          "japanese": [
+            
+            
+          ],
+          "english": [
+            
+          ],
+          "Kanna": [
+            
+          ]
+        },
+        {
+          "reading_number": 2,
+          "caption" : "",
+          "japanese": [
+            
+          ],
+          "english": [
+            
+          ],
+          "Kanna": [
+            
+          ]
+        }
+      ]
+    }
+  }

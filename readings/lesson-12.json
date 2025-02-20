@@ -1,0 +1,75 @@
+{
+    "lesson_12": {
+      "title": "Lesson 12: Feeling Ill",
+      "readings": [
+        {
+          "reading_number": 1,
+          "caption" : "Mary and Yui are talkinga at school.",
+          "japanese": [
+            "ゆい: メアリーさん、元気があまりませんね。",
+            "メアリー: うーん。ちょっとお腹が痛いです。",
+            "ゆい: どうしたんですか。",
+            "メアリー: きのう友だちと晩ご飯を食べに行ったんです。",
+            "メアリー: たぶん食べすぎたんです。",
+            "ゆい: 大丈夫ですか。",
+            "メアリー: ええ。心配しないでください。……ああ、痛い。",
+            "ゆい: 病院に行ったほうがいいですよ。"
+          ],
+          "kana": [
+            "ゆい: メアリーさん、元気があまりませんね。",
+            "メアリー: うーん。ちょっとおなかがいたいです。",
+            "ゆい: どうしたんですか。",
+            "メアリー: きのう友だちと晩ご飯を食べに行ったんです。",
+            "メアリー: たぶん食べすぎたんです。",
+            "ゆい: 大丈夫ですか。",
+            "メアリー: ええ。心配しないでください。……ああ、いたい。",
+            "ゆい: 病院に行ったほうがいいですよ。"
+          ],
+          "english": [
+            "Yui: You don't look well, Mary.",
+            "Mary: Um... I have a little stomachache.",
+            "Yui: What's the matter?",
+            "Mary: I went out to have dinner with my friend yesterday.",
+            "Mary: I probably ate too much.",
+            "Yui: Are you all right?",
+            "Mary: Yes. Don't worry about it. Oh, it hurts.",
+            "Yui: You had better go to a hospital."
+          ]
+        },
+        {
+          "reading_number": 2,
+          "caption" : "Next day Mary is at a hospital.",
+          "japanese": [
+            "メアリー: 先生、お腹が痛くて熱もあるんです。インフルエンザでしょうか。",
+            "医者: インフルエンザじゃないですね。かぜです。",
+            "メアリー: よかった。あのう、すぐテニスの試合があるので、練習しなきゃいけないんですが……。",
+            "医者: 二、三日、運動しないほうがいいでしょう。",
+            "メアリー: わかりました。",
+            "医者: 今日は薬を飲んで、早く寝てください。",
+            "メアリー: はい、ありがとうございました。",
+            "医者: お大事に。"
+          ],
+          "kana": [
+            "メアリー: 先生、おなかがいたくてねつもあるんです。インフルエンザでしょうか。",
+            "医者: インフルエンザじゃないですね。かぜです。",
+            "メアリー: よかった。あのう、すぐテニスの試合があるので、練習しなきゃいけないんですが……。",
+            "医者: 二、三日、運動しないほうがいいでしょう。",
+            "メアリー: わかりました。",
+            "医者: 今日は薬を飲んで、早く寝てください。",
+            "メアリー: はい、ありがとうございました。",
+            "医者: お大事に。"
+          ],
+          "english": [
+            "Mary: Doctor, I have a stomachache and a fever, too. Have I got the flu?",
+            "Doctor: I don't think that you've got the flu. It is just a cold.",
+            "Mary: Good. Well, I will have a tennis tournament soon, so I have to practice, though...",
+            "Doctor: You had better not exercise for a couple of days.",
+            "Mary: I understand.",
+            "Doctor: Take medicine and go to bed early tonight.",
+            "Mary: Yes. Thank you so much.",
+            "Doctor: Take care."
+          ]
+        }
+      ]
+    }
+  }

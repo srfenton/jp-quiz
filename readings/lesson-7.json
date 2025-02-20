@@ -1,0 +1,84 @@
+{
+    "lesson_7": {
+      "title": "Lesson 7: Family Picture",
+      "readings": [
+        {
+          "reading_number": 1,
+          "caption" : "Sora is showing a picture of her family to her roommate, Yui.",
+          "japanese": [
+            "ソラ: これはソラさんの家族の写真ですか。",
+            "ゆい: ええ。",
+            "ゆい: ソラさんはどれですか。",
+            "ソラ: これです。高校の時はめがねをかけていました。",
+            "ゆい: かわいいですね。",
+            "ソラ: これは父です。ニューヨークの会社で働いています。",
+            "ゆい: 背が高くて、かっこいいですね。これはお姉さんですか。",
+            "ソラ: ええ。姉は結婚しています。今ソウルに住んでいます。",
+            "ゆい: 子供が一人います。三歳です。",
+            "ゆい: ちょうと太っていますね。",
+            "ゆい: あ、猫がいますね。",
+            "ソラ: ええ。よく食べますから。"
+          ],
+          "kana": [
+            "ソラ: これはソラさんの家族の写真ですか。",
+            "ゆい: ええ。",
+            "ゆい: ソラさんはどれですか。",
+            "ソラ: これです。高校の時はめがねをかけていました。",
+            "ゆい: かわいいですね。",
+            "ソラ: これは父です。ニューヨークの会社で働いています。",
+            "ゆい: 背が高くて、かっこいいですね。これはお姉さんですか。",
+            "ソラ: ええ。姉は結婚しています。今ソウルに住んでいます。",
+            "ゆい: 子供が一人います。三歳です。",
+            "ゆい: ちょうと太っていますね。",
+            "ゆい: あ、猫がいますね。",
+            "ソラ: ええ。よく食べますから。"
+          ],
+          "english": [
+            "Yui: Is this your family picture, Sora?",
+            "Sora: Yes.",
+            "Yui: Which is you?",
+            "Sora: This. I was wearing glasses when I was in high school.",
+            "Yui: You are cute.",
+            "Sora: This is my father. He works at a company in New York.",
+            "Yui: He is tall and good-looking. Is this your older sister?",
+            "Sora: Yes. My sister is married. She lives in Seoul now.",
+            "Yui: She has one child. He is three years old.",
+            "Yui: He is a little fat.",
+            "Yui: Oh, there is a cat.",
+            "Sora: Yes, because she eats a lot."
+          ]
+        },
+        {
+          "reading_number": 2,
+          "caption" : "Yui's phone rings.",
+          "japanese": [
+            "ロバート: もしもし、ゆいさん。今何をしていますか。",
+            "ゆい: 別に何もしていません。今、ソラさんの写真を見ています。",
+            "ロバート: そうですか。きのうおいしいコーヒーを買いました。",
+            "ロバート: よかったら飲みませんか。",
+            "ゆい: いいですね。ソラさんも一緒に行ってもいいですか。",
+            "ロバート: もちろん。",
+            "ゆい: じゃあ、すぐ行きます。"
+          ],
+          "kana": [
+            "ロバート: もしもし、ゆいさん。今何をしていますか。",
+            "ゆい: 別に何もしていません。今、ソラさんの写真を見ています。",
+            "ロバート: そうですか。きのうおいしいコーヒーを買いました。",
+            "ロバート: よかったら飲みませんか。",
+            "ゆい: いいですね。ソラさんも一緒に行ってもいいですか。",
+            "ロバート: もちろん。",
+            "ゆい: じゃあ、すぐ行きます。"
+          ],
+          "english": [
+            "Robert: Hello, Yui, what are you doing now?",
+            "Yui: I'm not doing anything especially. I am looking at Sora's pictures.",
+            "Robert: I see. I bought some delicious coffee yesterday.",
+            "Robert: Won't you come to drink it, if you like?",
+            "Yui: That sounds good. Is it all right if Sora comes with me?",
+            "Robert: Of course.",
+            "Yui: We'll come right now."
+          ]
+        }
+      ]
+    }
+  }

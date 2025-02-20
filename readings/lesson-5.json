@@ -1,0 +1,100 @@
+{
+    "lesson_5": {
+      "title": "Lesson 5: A Trip to Okinawa",
+      "readings": [
+        {
+          "reading_number": 1,
+          "caption" : "Robert and Ken are vacationing in Okinawa.",
+          "japanese": [
+            "ロバート: いい天気ですね。",
+            "ケン: そうですね。でも、ちょっと暑いですね。",
+            "ロバート: ええ。わあ、きれいな海!",
+            "ケン: 泳ぎましょう。",
+            "ケン: ロバートさんはどんなスポーツが好きですか。",
+            "ロバート: サーフィンが好きです。",
+            "ロバート: 明日一緒にやりましょうか。",
+            "ケン: でも、難しくないですか。",
+            "ロバート: 大丈夫ですよ。"
+          ],
+          "kana": [
+            "ロバート: いい天気ですね。",
+            "ケン: そうですね。でも、ちょっとあついですね。",
+            "ロバート: ええ。わあ、きれいなうみ!",
+            "ケン: およぎましょう。",
+            "ケン: ロバートさんはどんなスポーツがすきですか。",
+            "ロバート: サーフィンがすきです。",
+            "ロバート: あした いっしょにやりましょうか。",
+            "ケン: でも、むずかしくないですか。",
+            "ロバート: だいじょうぶですよ。"
+          ],
+          "english": [
+            "Robert: Nice weather.",
+            "Ken: Yes. But it is a little hot.",
+            "Robert: Yes. Wow, beautiful sea!",
+            "Ken: Let's swim.",
+            "Ken: What kind of sports do you like, Robert?",
+            "Robert: I like surfing.",
+            "Robert: Shall we do it together tomorrow?",
+            "Ken: But isn't it difficult?",
+            "Robert: No."
+          ]
+        },
+        {
+          "reading_number": 2,
+          "caption" : "At the souvenir shop, Robert finds nice T-shirts.",
+          "japanese": [
+            "ロバート: すみません、このTシャツは、いくらですか。",
+            "店の人: 千八百円です。",
+            "ロバート: あのう、Lサイズがありますか。",
+            "店の人: はい、ありますよ。",
+            "ロバート: じゃ、Lサイズを二枚ください。"
+          ],
+          "kana": [
+            "ロバート: すみません、このTシャツは、いくらですか。",
+            "みせのひと: せんはっぴゃくえんです。",
+            "ロバート: あのう、Lサイズがありますか。",
+            "みせのひと: はい、ありますよ。",
+            "ロバート: じゃ、Lサイズをにまいください。"
+          ],
+          "english": [
+            "Robert: Excuse me. How much is this T-shirt?",
+            "Store attendant: It is 1,800 yen.",
+            "Robert: Um... Do you have a large size?",
+            "Store attendant: Yes, we do.",
+            "Robert: Then, two large ones, please."
+          ]
+        },
+        {
+          "reading_number": 3,
+          "caption" : "On Monday at school.",
+          "japanese": [
+            "ロバート: たけしさん、旅行は楽しかったですか。",
+            "たけし: ええ。沖縄の海はすごくきれいでしたよ。",
+            "ロバート: よかったですね。ぼくも海が大好きです。ホテルは高かったですか。",
+            "たけし: いいえ、あまり高くなかったです。これ、おみやげです。",
+            "ロバート: ありがとう。",
+            "ロバート: たけしさんのデートはどうでしたか。",
+            "たけし: ……。"
+          ],
+          "kana": [
+            "ロバート: たけしさん、りょこうはたのしかったですか。",
+            "たけし: ええ。おきなわのうみはすごくきれいでしたよ。",
+            "ロバート: よかったですね。ぼくもうみがだいすきです。ホテルはたかかったですか。",
+            "たけし: いいえ、あまりたかくなかったです。これ、おみやげです。",
+            "ロバート: ありがとう。",
+            "ロバート: たけしさんのデートはどうでしたか。",
+            "たけし: ……。"
+          ],
+          "english": [
+            "Robert: Takeshi, did you enjoy the trip?",
+            "Takeshi: Yes. The sea was very beautiful in Okinawa.",
+            "Robert: Good. I like the sea very much, too. Was the hotel expensive?",
+            "Takeshi: No, it wasn't so expensive. Here is a souvenir for you.",
+            "Robert: Thank you.",
+            "Robert: How was your date, Takeshi?",
+            "Takeshi: …"
+          ]
+        }
+      ]
+    }
+  }

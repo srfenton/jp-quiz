@@ -1,0 +1,75 @@
+{
+    "lesson_8": {
+      "title": "Lesson 8: Barbecue",
+      "readings": [
+        {
+          "reading_number": 1,
+          "caption" : "At school.",
+          "japanese": [
+            "ゆい: たけしさん、明日みんなでバーベキューをしませんか。",
+            "たけし: いいですね。だれが来ますか。",
+            "ゆい: ソラさんとロバートさんが来ます。メアリーさんも来ると思います。",
+            "たけし: ケンさんは?",
+            "ゆい: ケンさんはアルバイトがあると言っていました。",
+            "たけし: 残念ですね。何が持っていきましょうか。",
+            "ゆい: 何もいらないと思います。"
+          ],
+          "kana": [
+            "ゆい: たけしさん、あしたみんなでバーベキューをしませんか。",
+            "たけし: いいですね。だれがきますか。",
+            "ゆい: ソラさんとロバートさんがきます。メアリーさんもくると思います。",
+            "たけし: ケンさんは?",
+            "ゆい: ケンさんはアルバイトがあるといっていました。",
+            "たけし: ざんねんですね。なにがもっていきましょうか。",
+            "ゆい: なにもいらないとおもいます。"
+          ],
+          "english": [
+            "Yui: Takeshi, would you like to have a barbecue party tomorrow?",
+            "Takeshi: That's nice. Who will come?",
+            "Yui: Sora and Robert will come. I think Mary will come, too.",
+            "Takeshi: How about Ken?",
+            "Yui: Ken said he had a part-time job.",
+            "Takeshi: Too bad. Shall I bring something?",
+            "Yui: I think nothing is needed."
+          ]
+        },
+        {
+          "reading_number": 2,
+          "caption" : "Robert is cooking at the barbecue.",
+          "japanese": [
+            "ゆい: 上手ですね。ロバートさんは料理するのが好きですか。",
+            "ロバート: ええ、よく家で作ります。",
+            "ゆい: 何か手伝いましょうか。",
+            "ロバート: じゃあ、トマトを切ってください。",
+            "ロバート: 始めましょうか。",
+            "ゆい: あっ、まだ飲まないでください。",
+            "メアリー: メアリーさんも来ると言っていましたから。",
+            "メアリー: 遅くなってすみません。",
+            "みんな: じゃあ、乾杯!"
+          ],
+          "kana": [
+            "ゆい: 上手ですね。ロバートさんは料理するのが好きですか。",
+            "ロバート: ええ、よくうちでつくります。",
+            "ゆい: 何か手伝いましょうか。",
+            "ロバート: じゃあ、トマトをきってください。",
+            "ロバート: はじめましょうか。",
+            "ゆい: あっ、まだのまないでください。",
+            "メアリー: メアリーさんもくるといっていましたから。",
+            "メアリー: おそくなってすみません。",
+            "みんな: じゃあ、かんぱい!"
+          ],
+          "english": [
+            "Yui: You are good (at cooking). Do you like cooking, Robert?",
+            "Robert: Yes, I often cook at home.",
+            "Yui: Shall I help you with something?",
+            "Robert: Well then, cut the tomatoes, please.",
+            "Robert: Shall we start?",
+            "Yui: Oh, don't drink yet.",
+            "Mary: Mary said that she would come.",
+            "Mary: I'm sorry for being late.",
+            "Everyone: Well then… Cheers!"
+          ]
+        }
+      ]
+    }
+  }

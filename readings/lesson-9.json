@@ -1,0 +1,85 @@
+{
+    "lesson_9": {
+      "title": "Lesson 9: Kabuki",
+      "readings": [
+        {
+          "reading_number": 1,
+          "caption" : "Mary and Takeshi are talking.",
+          "japanese": [
+            "たけし: メアリーさんは歌舞伎が好きですか。",
+            "メアリー: 歌舞伎ですか。あまり知りません。",
+            "たけし: でも、ロバートさんもおもしろかったと言っていました。",
+            "たけし: 歌舞伎のチケットを二枚もらったから、見に行きませんか。",
+            "メアリー: ええ、ぜひ。いつですか。",
+            "たけし: 来週の木曜日です。十二時から四時までです。"
+          ],
+          "kana": [
+            "たけし: メアリーさんはかぶきがすきですか。",
+            "メアリー: かぶきですか。あまりしりません。",
+            "たけし: でも、ロバートさんもおもしろかったといっていました。",
+            "たけし: かぶきのチケットをにまいもらったから、みにいきませんか。",
+            "メアリー: ええ、ぜひ。いつですか。",
+            "たけし: らいしゅうのもくようびです。じゅうにじからよじまでです。"
+          ],
+          "english": [
+            "Takeshi: Mary, do you like Kabuki?",
+            "Mary: Kabuki? I don't know it well.",
+            "Takeshi: But Robert said it was interesting.",
+            "Takeshi: I got two tickets for Kabuki, so would you like to go to see it?",
+            "Mary: Sure. When is it?",
+            "Takeshi: On Thursday next week. From twelve noon to four."
+          ]
+        },
+        {
+          "reading_number": 2,
+          "caption" : "During intermission at a Kabuku theater.",
+          "japanese": [
+            "メアリー: きれいでしたね。",
+            "たけし: 出ている人はみんな男の人ですよね。",
+            "メアリー: 本当ですか。",
+            "たけし: ところで、もう昼ご飯を食べましたか。",
+            "メアリー: いいえ、まだ食べていません。",
+            "たけし: じゃあ、買いに行きましょう。"
+          ],
+          "kana": [
+            "メアリー: きれいでしたね。",
+            "たけし: でているひとはみんなおとこのひとですよね。",
+            "メアリー: ほんとうですか。",
+            "たけし: ところで、もうひるごはんをたべましたか。",
+            "メアリー: いいえ、まだたべていません。",
+            "たけし: じゃあ、かいにいきましょう。"
+          ],
+          "english": [
+            "Mary: It was beautiful.",
+            "Takeshi: The people who appear are all men.",
+            "Mary: Really?",
+            "Takeshi: By the way, did you already eat lunch?",
+            "Mary: No, I haven't eaten yet.",
+            "Takeshi: Then, shall we go to buy lunch?"
+          ]
+        },
+        {
+          "reading_number": 3,
+          "caption" : "At a concession stand.",
+          "japanese": [
+            "たけし: すみません。お弁当を二つください。",
+            "店の人: はい。",
+            "たけし: それから、お茶を一つとコーヒーを一つ。",
+            "店の人: 二千八百円です。どうもありがとうございました。"
+          ],
+          "kana": [
+            "たけし: すみません。おべんとうをふたつください。",
+            "みせのひと: はい。",
+            "たけし: それから、おちゃをひとつとコーヒーをひとつ。",
+            "みせのひと: にせんはっぴゃくえんです。どうもありがとうございました。"
+          ],
+          "english": [
+            "Takeshi: Excuse me. Two box lunches, please.",
+            "Vendor: Here you are.",
+            "Takeshi: And then, one tea and one coffee.",
+            "Vendor: That is 2,800 yen. Thank you very much."
+          ]
+        }
+      ]
+    }
+  }

@@ -1,0 +1,92 @@
+{
+  "lesson_4": {
+    "title": "Lesson 4: The First Date",
+    "readings": [
+      {
+        "reading_number": 1,
+        "caption" : "Mary goes downtown.",
+        "japanese": [
+          "メアリー: すみません。マクドナルドはどこですか。",
+          "知らない人: あそこにホテルがありますね。",
+          "マクドナルドはあのホテルの前ですよ。",
+          "メアリー: ありがとうございます。"
+        ],
+        "kana": [
+          "メアリー: すみません。マクドナルドはどこですか。",
+          "しらないひと: あそこにホテルがありますね。",
+          "マクドナルドはあのホテルのまえですよ。",
+          "メアリー: ありがとうございます。"
+        ],
+        "english": [
+          "Mary: Excuse me. Where is McDonald's?",
+          "Stranger: There is a hotel over there. McDonald's is in front of the hotel.",
+          "Mary: Thank you very much."
+        ]
+      },
+      {
+        "reading_number": 2,
+        "caption" : "In the evening, at Mary's host family's house.",
+        "japanese": [
+          "お父さん: ただいま。",
+          "メアリー: おかえりなさいませ。映画はどうでしたか。",
+          "お父さん: 見ませんでした。たけしさんは来ませんでした。",
+          "メアリー: えっ。どうしてですか。",
+          "お父さん: わかりません。だから、一人で本屋と",
+          "お寺に行きました。",
+          "メアリー: 人がたくさんいましたか。",
+          "お父さん: はい。お寺で写真をたくさん撮りました。",
+          "メアリー: 公園にも行きました。",
+          "お父さん: そうですか。"
+        ],
+        "kana": [
+          "おとうさん: ただいま。",
+          "メアリー: おかえりなさいませ。えいがはどうでしたか。",
+          "おとうさん: みませんでした。たけしさんはきませんでした。",
+          "メアリー: えっ。どうしてですか。",
+          "おとうさん: わかりません。だから、ひとりでほんやと",
+          "おてらにいきました。",
+          "メアリー: ひとがたくさんいましたか。",
+          "おとうさん: はい。おてらでしゃしんをたくさんとりました。",
+          "メアリー: こうえんにもいきました。",
+          "おとうさん: そうですか。"
+        ],
+        "english": [
+          "Host father: I'm home.",
+          "Mary: Welcome home. How was the movie?",
+          "Host father: I didn't see it. Takeshi didn't come.",
+          "Mary: Oh, why?",
+          "Father: I don't know. So, I went to a bookstore and a temple alone.",
+          "Mary: Were there a lot of people?",
+          "Father: Yes. I took many pictures at the temple.",
+          "Mary: I also went to a park.",
+          "Host father: I see."
+        ]
+      },
+      {
+        "reading_number": 3,
+        "caption" : "Takeshi calls Mary at night.",
+        "japanese": [
+          "たけし: もしもし、メアリーさん。",
+          "メアリー: あっ、たけしさん。今日来ませんでしたね。",
+          "たけし: 行きましたよ。モスバーガーの前で一時間待ちました。",
+          "メアリー: モスバーガーじゃないですよ。マクドナルドですよ。",
+          "たけし: マクドナルド……ごめんなさい!"
+        ],
+        "kana": [
+          "たけし: もしもし、メアリーさん。",
+          "メアリー: あっ、たけしさん。きょうきませんでしたね。",
+          "たけし: いきましたよ。モスバーガーのまえでいちじかんまちました。",
+          "メアリー: モスバーガーじゃないですよ。マクドナルドですよ。",
+          "たけし: マクドナルド……ごめんなさい!"
+        ],
+        "english": [
+          "Takeshi: Hello, Mary.",
+          "Mary: Oh, Takeshi. You didn't come today, did you?",
+          "Takeshi: I went there. I waited for one hour in front of the Mos Burger place.",
+          "Mary: Not Mos Burger. McDonald's!",
+          "Takeshi: McDonald's... I'm sorry!"
+        ]
+      }
+    ]
+  }
+}

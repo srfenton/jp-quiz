@@ -1,0 +1,78 @@
+{
+    "lesson_10": {
+      "title": "Lesson 10: Winter Vacation Plans",
+      "readings": [
+        {
+          "reading_number": 1,
+          "caption" : "Winter Vacation is approaching.",
+          "japanese": [
+            "メアリー: 寒くなりましたね。",
+            "たけし: ええ。メアリーさん、冬休みはどうしますか。",
+            "メアリー: 北海道か九州に行くつもりですが、まだ決めていません。",
+            "たけし: いいですね。",
+            "メアリー: 北海道と九州とどちらのほうがいいと思いますか。",
+            "たけし: 冬は北海道のほうが面白いと思いますよ。ぼくの友だちは食べ物もおいしいと言っていました。",
+            "メアリー: そうですか。ところで、たけしさんはどこかに行きますか。",
+            "たけし: お金がないから、どこにも行きません。",
+            "メアリー: そうですか。じゃあ、たけしさんにおみやげを買ってきますよ。",
+            "たけし: わあ、ありがとう。"
+          ],
+          "kana": [
+            "メアリー: さむくなりましたね。",
+            "たけし: ええ。メアリーさん、ふゆやすみはどうしますか。",
+            "メアリー: ほっかいどうかきゅうしゅうにいくつもりですが、まだきめていません。",
+            "たけし: いいですね。",
+            "メアリー: ほっかいどうときゅうしゅうとどちらのほうがいいとおもいますか。",
+            "たけし: ふゆはほっかいどうのほうが面白いとおもいますよ。ぼくの友だちは食べ物もおいしいといっていました。",
+            "メアリー: そうですか。ところで、たけしさんはどこかに行きますか。",
+            "たけし: おかねがないから、どこにもいきません。",
+            "メアリー: そうですか。じゃあ、たけしさんにおみやげをかってきますよ。",
+            "たけし: わあ、ありがとう。"
+          ],
+          "english": [
+            "Mary: It is getting cold.",
+            "Takeshi: Yes. Mary, what will you do at winter break?",
+            "Mary: I am planning to go to Hokkaido or Kyushu, but I haven't decided yet.",
+            "Takeshi: That's nice.",
+            "Mary: Which do you think is better, Hokkaido or Kyushu?",
+            "Takeshi: I think Hokkaido is more interesting in winter. My friend said that the food was delicious there as well.",
+            "Mary: Really? By the way, are you going somewhere, Takeshi?",
+            "Takeshi: I don't have money, so I won't go anywhere.",
+            "Mary: Is that so? Then I'll buy a souvenir for you.",
+            "Takeshi: Wow, thank you."
+          ]
+        },
+        {
+          "reading_number": 2,
+          "caption" : "At te hotel front desk.",
+          "japanese": [
+            "メアリー: すみません。ここから旭山動物園までどのぐらいかかりますか。",
+            "ホテルの人: そうですね。電車とバスで二時間半ぐらいです。",
+            "メアリー: 時間がかかりますね。",
+            "ホテルの人: 土曜日と日曜日はバスツアーがありますが……。",
+            "メアリー: そうですか。いくらですか。",
+            "ホテルの人: 四千八百円です。",
+            "メアリー: いいですね。じゃあ、ツアーの予約をお願いします。土曜日のをお願いします。"
+          ],
+          "kana": [
+            "メアリー: すみません。ここからあさひやまどうぶつえんまでどのぐらいかかりますか。",
+            "ホテルのひと: そうですね。でんしゃとバスでにじかんはんぐらいです。",
+            "メアリー: 時間がかかりますね。",
+            "ホテルのひと: 土曜日と日曜日はバスツアーがありますが……。",
+            "メアリー: そうですか。いくらですか。",
+            "ホテルのひと: よんせんはっぴゃくえんです。",
+            "メアリー: いいですね。じゃあ、ツアーの予約をお願いします。土曜日のをお願いします。"
+          ],
+          "english": [
+            "Mary: Excuse me, how long does it take from here to Asahiyama Zoo?",
+            "Hotel front desk: Let's see... It will take about two and half hours by train and bus.",
+            "Mary: It takes time, doesn't it?",
+            "Hotel front desk: There are bus tours on Saturday and Sunday...",
+            "Mary: Really? How much does it cost?",
+            "Hotel front desk: 4,800 yen.",
+            "Mary: Sounds good. Well, I would like to reserve the tour. The Saturday tour, please."
+          ]
+        }
+      ]
+    }
+  }

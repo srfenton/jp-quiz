@@ -1,0 +1,91 @@
+{
+    "lesson_11": {
+      "title": "Lesson 11: After the Vacation",
+      "readings": [
+        {
+          "reading_number": 1,
+          "caption" : "",
+          "japanese": [
+            "ゆい: メアリーさん、久しぶりですね。休みはどうでしたか。",
+            "メアリー: すごく楽しかったです。北海道で動物園に行ったり、買い物をしたりしました。",
+            "ゆい: いいですね。私も旅行したいです。",
+            "メアリー: ゆいさんの休みは楽しかったですか。",
+            "ゆい: まあまあでした。一日だけドライブに行きましたが、毎日アルバイトをしていました。"
+          ],
+          "kana": [
+            "ゆい: メアリーさん、ひさしぶりですね。やすみはどうでしたか。",
+            "メアリー: すごくたのしかったです。ほっかいどうでどうぶつえんにいったり、かいものをしたりしました。",
+            "ゆい: いいですね。わたしもりょこうしたいです。",
+            "メアリー: ゆいさんのやすみはたのしかったですか。",
+            "ゆい: まあまあでした。いちにちだけドライブにいきましたが、まいにちアルバイトをしていました。"
+          ],
+          "english": [
+            "Yui: Mary, I haven't seen you for a long time. How was your vacation?",
+            "Mary: It was really fun. I went to the zoo, did shopping and things like that in Hokkaido.",
+            "Yui: Sounds good. I want to travel, too.",
+            "Mary: Did you have a fun vacation, Yui?",
+            "Yui: It was okay. I went for a drive just for one day, but I was working part-time every day."
+          ]
+        },
+        {
+          "reading_number": 2,
+          "caption" : "",
+          "japanese": [
+            "メアリー: ゆいさん、友達を紹介します。こちらはジョンさんです。",
+            "ジョン: ジョンさんは先月、日本に来ました。",
+            "ジョン: 初めまして。",
+            "ゆい: 初めまして、山川ゆいです。"
+          ],
+          "kana": [
+            "メアリー: ゆいさん、友達を紹介します。こちらはジョンさんです。",
+            "ジョン: ジョンさんは先月、日本に来ました。",
+            "ジョン: 初めまして。",
+            "ゆい: 初めまして、山川ゆいです。"
+          ],
+          "english": [
+            "Mary: Yui, I want to introduce you to a friend of mine. This is John.",
+            "John: John came to Japan last month.",
+            "John: How do you do?",
+            "Yui: How do you do? I am Yui Yamakawa."
+          ]
+        },
+        {
+          "reading_number": 3,
+          "caption" : "",
+          "japanese": [
+            "ゆい: ジョンさん、出身はどこですか。",
+            "ジョン: オーストラリアのケアンズです。",
+            "ゆい: そうですか。",
+            "ゆい: ジョンさんはケアンズに行ったことがありますか。",
+            "ジョン: いいえ、ありません。",
+            "ゆい: 山や海があって、きれいな所ですよ。グレートバリアリーフで有名です。",
+            "ゆい: ゆいさんはどこ出身ですか。",
+            "ゆい: 長野です。今度遊びに来てください。食べ物もおいしいですよ。",
+            "ジョン: ぜひ、行きたいです。"
+          ],
+          "kana": [
+            "ゆい: ジョンさん、しゅっしんはどこですか。",
+            "ジョン: オーストラリアのケアンズです。",
+            "ゆい: そうですか。",
+            "ゆい: ジョンさんはケアンズにいったことがありますか。",
+            "ジョン: いいえ、ありません。",
+            "ゆい: 山や海があって、きれいな所ですよ。グレートバリアリーフで有名です。",
+            "ゆい: ゆいさんはどこしゅっしんですか。",
+            "ゆい: 長野です。今度遊びに来てください。食べ物もおいしいですよ。",
+            "ジョン: ぜひ、行きたいです。"
+          ],
+          "english": [
+            "Yui: John, where are you from?",
+            "John: I am from Cairns, Australia.",
+            "Yui: Is that so?",
+            "Yui: Have you been to Cairns?",
+            "John: No, I haven't.",
+            "Yui: It has mountains and the ocean and is a beautiful place. It's famous for the Great Barrier Reef.",
+            "Yui: Where are you from, Yui?",
+            "Yui: I am from Nagano. Please come to visit me sometime. The food is good, too.",
+            "John: By all means, I would love to."
+          ]
+        }
+      ]
+    }
+  }
