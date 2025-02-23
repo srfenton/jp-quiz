@@ -132,15 +132,15 @@ app.get('/', async (req, res) => {
 
 
 // Route for selecting a lesson file
-app.get('/selectlesson', async (req, res) => {
-    console.log(req.query.selection);
+app.get('/selectlesson/:type', async (req, res) => {
     const sessionId = req.session.session_id;
-    let selectedOption = req.query.selection;
-    
     getSession(req, res, dbo);
-
-    // sessionDataStore[sessionId]['lessonBank'] = generateLessonBankObject(); // Generate list of available lessons
-    const lessonBank = await generateLessonBankObjectDb(selectedOption);
+    const lessonType = req.params.type
+    if (!['quiz', 'readings'].includes(lessonType)) {
+        return res.status(400).send("Invalid lesson type.");
+    }    
+    
+    const lessonBank = await generateLessonBankObjectDb(lessonType);
 
     // Update MongoDB with the new lessonBank
     await dbo.collection("sessions").updateOne(
@@ -148,9 +148,9 @@ app.get('/selectlesson', async (req, res) => {
         { $set: { lessonBank: lessonBank } }, 
         { upsert: true } // Create document if it doesn't exist
     );
-
+    console.log(lessonBank)
     // Corrected closing brackets
-    res.render('selectLesson', { jsonData: lessonBank }); // Render lesson selection page
+    res.render('selectLesson', { jsonData: lessonBank, lessonType: lessonType }); // Render lesson selection page
 });
 
 
@@ -314,11 +314,8 @@ app.post('/submit', async (req, res) => {
 
     let submittedAnswer = req.query.answer; // Get the submitted answer
     let currentIndex = sessionData.currentIndex;
-    // let currentWord = sessionDataStore[sessionId]['currentWord'];
     let currentWord = sessionData.currentWord;
-    // let vocabBankObject = sessionDataStore[sessionId]['vocabBankObject']
     let vocabBankObject = sessionData.vocabBankObject;
-    // sessionDataStore[sessionId]['correctAnswer'] = vocabBankObject.vocabBank.translations[currentWord].trim().toLowerCase(); // Correct answer
     let correctAnswer = sessionData.correctAnswer;
     let questionNumber = sessionData.questionNumber;
     let result = ''; // Initialize result as correct/incorrect
@@ -372,6 +369,54 @@ app.post('/reset', async (req, res) => {
     // Redirect to the first question or home page
     res.redirect('/');
 });
+
+
+
+
+
+app.post('/readings/:lessonFile', async (req, res) => {
+    const sessionId = req.session.session_id;
+    let lessonFile = req.params.lessonFile;
+    
+    // Find the corresponding lesson in MongoDB
+    const selectedReading = await dbo.collection('readings').find(
+        { lesson_title: lessonFile } // Ensure this field matches your DB schema
+    ).toArray();
+    console.log(selectedReading)
+
+    if (!selectedReading) {
+        return res.status(404).send("Lesson not found");
+    }
+
+    // Store the selected reading in the session data
+    await dbo.collection("sessions").updateOne(
+        { sessionId: sessionId }, 
+        { $set: { selectedReading: selectedReading } },
+        { upsert: true }
+    );
+
+    return res.redirect(`/readings`);
+});
+
+
+app.get('/readings', async (req, res) => {
+    const sessionId = req.session.session_id;
+    getSession(req, res, dbo);
+
+    let sessionData = await dbo.collection('sessions').findOne(
+        { sessionId: sessionId }, 
+        { projection: { selectedReading: 1, _id: 0 } }
+    );
+
+    if (!sessionData || !sessionData.selectedReading) {
+        return res.status(404).send("No reading selected");
+    }
+
+    console.log(sessionData.selectedReading);
+    
+    res.render('readings', { jsonData: sessionData.selectedReading });
+});
+
 
 
 

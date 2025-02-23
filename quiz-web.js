@@ -46,14 +46,14 @@ async function generateLessonBankObjectDb(selectedOption) {
     let distinctTitles;
     if(selectedOption ==='readings'){
       distinctTitles = await db.collection("readings").distinct("lesson_title");
-    } else{ 
+    } else if(selectedOption === 'quiz'){ 
       distinctTitles = await db.collection("vocab").distinct("englishTitle");
+      
     }
     distinctTitles.forEach(lesson => {
       lessonBank[lessonCount] = lesson;
       lessonCount++;
     });
-    // console.log(lessonBank);
   
     return lessonBank;
 

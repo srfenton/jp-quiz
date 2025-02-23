@@ -57,7 +57,7 @@ async function importVocabFiles() {
       const vocabCollection = db.collection("vocab");
 
       // Scan directory for JSON files
-      const files = fs.readdirSync('vocabDir').filter(file => file.endsWith('.json'));
+      const files = fs.readdirSync(vocabDir).filter(file => file.endsWith('.json'));
 
       for (const file of files) {
           const filePath = path.join(vocabDir, file);
@@ -101,7 +101,7 @@ async function importReadingsFiles() {
       const fileData = fs.readFileSync(filePath, 'utf8');
       const readingsData = JSON.parse(fileData);
 
-      // Iterate through the lesson data
+      // Iterate through the lesson dataac
       for (const lessonKey in readingsData) {
         const lesson = readingsData[lessonKey];
         const lessonNumber = parseInt(lessonKey.replace("lesson_", "")); // Extract lesson number

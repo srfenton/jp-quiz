@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Lessons</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        /* General styling inspired by The Ritz-Carlton Tokyo aesthetic */
+        body {
+            font-family: "Playfair Display", serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f7f2;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .lesson-section {
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #b2985b;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 1200px;
+            background-color: transparent;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        .readingDiv {
+            width: 60%;
+            margin: auto;
+            text-align: justify;
+            display: none;
+        }
+
+        /* Button container */
+        .button-container {
+            margin: 20px 0;
+        }
+
+        .toggle-button {
+            background-color: #b2985b;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .toggle-button:hover {
+            background-color: #8c7a4f;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        a:hover {
+            color: #b2985b;
+        }
+    </style>
+</head>
+<body>
+    <h1><%= jsonData[0].lesson_title %></h1>
+
+    <% if (Array.isArray(jsonData) && jsonData.length > 0) { %>
+        <% jsonData.forEach((lesson, index) => { %>
+            <div class="lesson-section">
+                <h3><%= lesson.caption %></h3>
+
+                <!-- Toggle Buttons -->
+                <div class="button-container">
+                    <button class="toggle-button" onclick="showText('kana-<%= index %>')">Kana</button>
+                    <button class="toggle-button" onclick="showText('japanese-<%= index %>')">Japanese</button>
+                    <button class="toggle-button" onclick="showText('english-<%= index %>')">English</button>
+                </div>
+
+                <div class="readingDiv" id="kana-<%= index %>">
+                    <ul>
+                        <% if (Array.isArray(lesson.kana)) { %>
+                            <% lesson.kana.forEach(line => { %>
+                                <li><%= line %></li>
+                            <% }); %>
+                        <% } else { %>
+                            <li>No kana content available</li>
+                        <% } %>
+                    </ul>
+                </div>
+
+                <div class="readingDiv" id="japanese-<%= index %>">
+                    <ul>
+                        <% if (Array.isArray(lesson.japanese)) { %>
+                            <% lesson.japanese.forEach(line => { %>
+                                <li><%= line %></li>
+                            <% }); %>
+                        <% } else { %>
+                            <li>No Japanese content available</li>
+                        <% } %>
+                    </ul>
+                </div>
+
+                <div class="readingDiv" id="english-<%= index %>">
+                    <ul>
+                        <% if (Array.isArray(lesson.english)) { %>
+                            <% lesson.english.forEach(line => { %>
+                                <li><%= line %></li>
+                            <% }); %>
+                        <% } else { %>
+                            <li>No English content available</li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <p>No lessons available</p>
+    <% } %>
+
+    <a href="/">Go back to Home Page</a>
+
+    <script>
+        function showText(id) {
+            // Get the lesson section that contains this element
+            const lessonSection = document.getElementById(id).closest('.lesson-section');
+            
+            // Hide all reading divs in this section
+            const readingDivs = lessonSection.getElementsByClassName('readingDiv');
+            for (let div of readingDivs) {
+                div.style.display = 'none';
+            }
+
+            // Show the selected div
+            document.getElementById(id).style.display = 'block';
+        }
+
+        // Show Japanese text by default for each lesson
+        window.onload = function() {
+            const sections = document.getElementsByClassName('lesson-section');
+            Array.from(sections).forEach((section, index) => {
+                document.getElementById(`japanese-${index}`).style.display = 'block';
+            });
+        }
+    </script>
+</body>
+</html>
