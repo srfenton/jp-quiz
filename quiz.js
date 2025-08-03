@@ -6,7 +6,7 @@ const readline = require('readline');
 let lessonCount = 1
 let lessonBank = {}
 // Define the directory path
-const directoryPath = 'vocab/json';
+const directoryPath = path.join(__dirname, 'vocab', 'json');
 
 // Read the contents of the directory
 fs.readdir(directoryPath, (err, files) => {
@@ -34,8 +34,7 @@ rl.question('Please enter the number corresponding to the lesson you wish to stu
   lessonChoice = lessonChoice.trim();
   
   console.log('You have chosen, ', lessonBank[parseInt(lessonChoice)])
-  
-  fs.readFile(`vocab/json/${lessonBank[parseInt(lessonChoice)]}`, 'utf8', function (err, file) {
+ fs.readFile(path.join(__dirname, 'vocab', 'json', lessonBank[parseInt(lessonChoice)]), 'utf8', function (err, file) { 
     if (err) throw err;
     const vocabBank = JSON.parse(file)
     let japaneseTranslationArray = Object.keys(vocabBank['translations']);
@@ -72,8 +71,8 @@ rl.question('Please enter the number corresponding to the lesson you wish to stu
 
 
     function nextWord(){
-      if(currentIndex < 5) {
-      // if(currentIndex < japaneseTranslationArray.length) { un-comment this line and comment out the one above for a longer test
+      //if(currentIndex < 5) {
+       if(currentIndex < japaneseTranslationArray.length) { un-comment this line and comment out the one above for a longer test
         let currentWordEnglish = vocabBank['translations'][japaneseTranslationArray[currentIndex]]
         
         console.log(currentIndex+1,'. ',japaneseTranslationArray[currentIndex], ': \n');
@@ -89,6 +88,7 @@ rl.question('Please enter the number corresponding to the lesson you wish to stu
         for (let choice in questionChoicesObject) {
           const question = questionChoicesObject[choice];
           console.log(`${choice}: ${question} \n`);
+
         };
       } else {
           console.log('that\'s all the words in the test');
