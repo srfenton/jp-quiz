@@ -71,8 +71,9 @@ rl.question('Please enter the number corresponding to the lesson you wish to stu
 
 
     function nextWord(){
+      //tweak the below two lines for a longer/shorter test
       //if(currentIndex < 5) {
-       if(currentIndex < japaneseTranslationArray.length) { un-comment this line and comment out the one above for a longer test
+       if(currentIndex < japaneseTranslationArray.length) { 
         let currentWordEnglish = vocabBank['translations'][japaneseTranslationArray[currentIndex]]
         
         console.log(currentIndex+1,'. ',japaneseTranslationArray[currentIndex], ': \n');
