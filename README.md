@@ -1,88 +1,202 @@
+# jp-quiz  
+Japanese Vocabulary & Readings Quiz Web App  
 
-# jp-quiz
-Japanese Vocabulary Quiz Program
+A web-based Japanese learning tool designed to help you practice vocabulary and readings. Originally built as a Command Line Interface (CLI) app, it has evolved into a full-featured Express.js web application with MongoDB persistence.  
 
-This program is designed to help you practice and test your knowledge of Japanese vocabulary. Originally a Command Line Interface (CLI) application, it has now evolved into a web-based application. You can still run the original CLI version, but the web version offers an enhanced user experience with a graphical interface.
+---
 
-## Features:
+## Features  
 
-- **Multiple Platform Support**: Now available as both a CLI program and a web app.
-- **Vocabulary Management**: Reads Japanese vocabulary from JSON files stored in the `vocab/json` directory.
-- **Lesson Selection**: Choose specific lessons to study, each containing its own set of vocabulary.
-- **Randomized Questions**: The order of words is randomized for a varied quiz experience.
-- **Multiple-Choice Questions**: Each word is presented with multiple-choice answers.
-- **Progress Tracking**: Tracks correct and incorrect answers, and provides a summary at the end of the quiz.
-- **Missed Words List**: Displays a list of words you answered incorrectly for further review.
+- **Two Lesson Types**  
+  - **Quiz** – Multiple-choice vocabulary practice.  
+  - **Readings** – Reading comprehension passages from MongoDB.  
 
-## Web Version
+- **MongoDB-Backed Sessions**  
+  - Tracks progress (`correct`, `incorrect`, `currentIndex`, missed words).  
+  - Persists lesson choice, quiz state, and reading selection across page loads.  
 
-### Getting Started:
+- **Lesson Management**  
+  - Pulls lessons from MongoDB (`quiz` vocab sets or `readings`).  
+  - Supports combined lessons for larger quizzes.  
 
-1. **Installation**: 
-   Ensure you have [Node.js](https://nodejs.org/) installed on your machine. 
+- **Multiple-Choice Quizzes**  
+  - Randomized word order.  
+  - Tracks correct and incorrect answers.  
+  - Displays missed words for review.  
 
-   Clone the repository and install dependencies:
+- **Session Reset**  
+  - Easily reset quiz progress without restarting the server.  
+
+---
+
+## Installation  
+
+1. **Install Node.js & MongoDB**  
+   - [Node.js](https://nodejs.org/en)  
+   - [MongoDB Community Server](https://www.mongodb.com/try/download/community)  
+
+2. **Clone the Repository**  
    ```bash
    git clone https://github.com/yourusername/jp-quiz.git
    cd jp-quiz
    npm install
    ```
 
-2. **Node Package Dependencies**:
-   The web version requires the following packages, which are installed via `npm install`:
-   - `express`: Web framework for Node.js.
-   - `ejs`: Embedded JavaScript templating.
-
-3. **Running the Web App**:
-   Start the server:
-   ```bash
-   node app.js
+3. **Ensure MongoDB is Running**  
+   The default connection URL is:  
    ```
-   Open your web browser and go to [http://localhost:3000](http://localhost:3000).
+   mongodb://localhost:27017/jpquiz
+   ```  
+   Change this in `app.js` or the import script if needed.  
 
-4. **Using the Web App**:
-   - **Home Page**: The home page welcomes you and allows you to start the quiz.
-   - **Lesson Selection**: Select a lesson from the available list.
-   - **Quiz Interface**: Answer the multiple-choice questions displayed.
-   - **Review Summary**: At the end of the quiz, view your score and any missed words.
+---
 
-## CLI Version
+## Running the Web App  
 
-### Usage:
+```bash
+node app.js
+```
 
-1. **Prepare Vocabulary Files**:
-   Create JSON files in the `vocab/json` directory. Each file should contain a Japanese word list and their English translations.
+Navigate to:  
+[http://localhost:3000](http://localhost:3000)  
 
-   Example `lesson-1-vocab.json`:
-   ```json
-   {
-       "translations": {
-           "こんにちは": "hello",
-           "ありがとう": "thank you",
-           "さようなら": "goodbye"
-       }
-   }
-   ```
+---
 
-2. **Run the Program**:
-   Execute the CLI version by running the JavaScript file using Node.js:
-   ```bash
-   node quiz.js
-   ```
+## Database Setup & Import Script  
 
-3. **Take the Quiz**:
-   Follow the prompts in the terminal to select a lesson and answer the quiz questions.
+A helper script is included to:  
+- Drop and recreate collections.  
+- Import **vocabulary** JSON files from `vocab/json/`.  
+- Import **readings** JSON files from `readings/`.  
 
-4. **Review Results**:
-   After completing the quiz, the CLI program will display your score and any missed words.
+### **Script Location**  
+Create a file named `importData.js` in the project root with the following:  
 
-### Dependencies:
+```js
+const { MongoClient } = require('mongodb');
+const fs = require('fs');
+const path = require('path');
+const url = "mongodb://localhost:27017/jpquiz";
+const dbName = "jpquiz";
+const vocabDir = path.join(__dirname, 'vocab/json');
 
-- Node.js (JavaScript runtime environment)
-- Express.js and EJS (for the web version)
+async function manageCollection() {
+  let db;
+  try {
+    db = await MongoClient.connect(url);
+    const dbo = db.db(dbName);
 
-### Notes:
+    try {
+      await dbo.collection("customers").drop();
+      await dbo.collection("readings").drop();
+      await dbo.collection("sessions").drop();
+      await dbo.collection("vocab").drop();
+      console.log("Collections deleted");
+    } catch {
+      console.log("Collection did not exist, skipping deletion");
+    }
 
-- Ensure that Node.js is installed on your system before running the program.
-- The vocabulary files should be placed in the `vocab/json` directory.
-- Customize the number of quiz questions by adjusting the `testLength` variable in the code.
+    await dbo.createCollection("customers");
+    await dbo.createCollection("readings");
+    await dbo.createCollection("vocab");
+    await dbo.createCollection("sessions");
+    console.log("Collections created");
+
+    await dbo.collection("customers").insertOne({ name: "Admin" });
+    console.log("Sample document inserted!");
+  } finally {
+    if (db) db.close();
+  }
+}
+
+async function importVocabFiles() {
+  const client = new MongoClient(url);
+  try {
+    await client.connect();
+    const db = client.db(dbName);
+    const vocabCollection = db.collection("vocab");
+
+    const files = fs.readdirSync(vocabDir).filter(f => f.endsWith('.json'));
+    for (const file of files) {
+      const data = JSON.parse(fs.readFileSync(path.join(vocabDir, file), 'utf8'));
+      await vocabCollection.updateOne(
+        { englishTitle: file, japaneseTitle: data.title },
+        { $set: data },
+        { upsert: true }
+      );
+      console.log(`Imported vocab: ${file}`);
+    }
+  } finally {
+    await client.close();
+  }
+}
+
+async function importReadingsFiles() {
+  const client = new MongoClient(url);
+  try {
+    await client.connect();
+    const db = client.db(dbName);
+    const readingCollection = db.collection("readings");
+    const readingsDir = 'readings';
+    const files = fs.readdirSync(readingsDir).filter(f => f.endsWith('.json'));
+
+    for (const file of files) {
+      const data = JSON.parse(fs.readFileSync(path.join(readingsDir, file), 'utf8'));
+      for (const lessonKey in data) {
+        const lesson = data[lessonKey];
+        const lessonNumber = parseInt(lessonKey.replace("lesson_", ""));
+        for (const reading of lesson.readings) {
+          await readingCollection.updateOne(
+            { lesson_number: lessonNumber, reading_number: reading.reading_number },
+            { $set: {
+                lesson_number: lessonNumber,
+                lesson_title: lesson.title,
+                reading_number: reading.reading_number,
+                caption: reading.caption || "",
+                japanese: reading.japanese,
+                english: reading.english,
+                kana: reading.kana
+              }
+            },
+            { upsert: true }
+          );
+        }
+      }
+      console.log(`Imported reading file: ${file}`);
+    }
+  } finally {
+    await client.close();
+  }
+}
+
+async function run() {
+  await manageCollection();
+  await importVocabFiles();
+  await importReadingsFiles();
+  console.log("Database setup complete.");
+}
+
+run();
+```
+
+### **Run the Script**  
+```bash
+node importData.js
+```
+
+This will:  
+- Drop existing collections.  
+- Recreate `customers`, `readings`, `vocab`, `sessions`.  
+- Insert an admin user in `customers`.  
+- Import all vocab JSON files from `vocab/json/`.  
+- Import all reading JSON files from `readings/`.  
+
+---
+
+## CLI Version (Optional)  
+
+The original CLI quiz still exists and can be run with:  
+```bash
+node quiz.js
+```  
+
